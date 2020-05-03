@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>www.SignUp/THINK.com</title>
+		<style>
+		
+		h1 {
+  background-color: blue;
+  color: white;
+}
+
+
+label {
+    display: block;
+    font: .9rem 'Fira Sans', sans-serif;
+}
+
+input[type='submit'],
+label {
+    margin-top: 1rem;
+	text-align: middle;
+}
+note{
+	color: red;
+	font: .6rem 'Fira Sans', sans-serif;
+}
+html1{
+	height:150px;
+	width: 300px;
+}
+
+.button {
+  border: black 4px;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #00cc96;
+  width: 130px;
+}
+
+
+.navbar {
+  overflow: hidden;
+  background-color: #ff531a;
+  position: sticky;
+  right: 0;
+  width: 100%;
+}
+
+.navbar a:hover {
+  float: left;
+  display: block;
+  background-color: #333;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}	
+
+
+.footer {
+   left: 0;
+   width:100%;
+   height:150px;
+   bottom: 0;
+   width: 100%;
+   background-color: darkgray;
+   color: white;
+   text-align: center;
+}
+
+.cen {
+align: center;
+}
+
+
+-start of thigh-
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+  .column {
+    width: 320px;
+	height: 100%;
+  }
+
+-end of thing-
+
+</style>
+<script>
+//are you in the system?
+function checkName(){
+var Name=document.getElementById("Name").value;
+if( Name === "divyang Verma" || Name === "dipali Verma" || Name === "vivek Verma"){
+	alert("Your password and username is already are in our system");
+}
+}
+
+//for telling the username
+function checkUserName(){
+var user=document.getElementById("user").value;
+document.cookie = "USER="+user; 
+alert("Your Username is:   " + user);              																																																																																																																																																																													 
+}
+
+//for telling the password
+function checkPassword(){
+var pass=document.getElementById("pass").value;
+document.cookie = "PASS="+pass; 
+alert("Your Password is:   " + pass);
+}
+
+// the real checking
+function checkEmail(){
+var email=document.getElementById("email").value;
+if( email === "divyangVerma.26@gmail.com" || email==="dipali.shingrut@gmail.com" || email==="viveks.Verma@gmail.com"){
+checkName();
+}
+
+else{
+// want a mail?
+var str = "Send a email to you!";
+var result = str.link("mailto: email");
+document.getElementById("demo").innerHTML = result;
+checkUserName();
+checkPassword();
+alert("Thank you for Signing up");
+move();
+}
+}
+
+///////////////////
+
+function displayCookies() {
+var fname=getCookie("firstname");
+if (fname==null) {fname="";}
+if (fname!="") {fname="firstname="+fname;}
+var lname=getCookie("lastname");
+if (lname==null) {lname="";}
+if (lname!="") {lname="lastname="+lname;}
+alert (fname + " " + lname);
+}
+function getCookie(name) {
+var nameEQ = name + "=";
+//alert(document.cookie);
+var ca = document.cookie.split(';');
+for(var i=0;i < ca.length;i++) {
+var c = ca[i];
+while (c.charAt(0)==' ') c = c.substring(1);
+if (c.indexOf(nameEQ) != -1) return c.substring(nameEQ.length,c.length);
+}
+return null;
+} 
+
+</script>
+    </head>
+    <body>
+
+        <h1>Sign Up</h1>
+       
+		<div>
+        <label for="u">Email:</label>
+        <input type="text" id="email" name="email"  />
+		
+		<br>
+		<label for="u">Name:</label>
+        <input type="text" id="Name" name="Name" />
+		
+		<br>
+		<label for="u">Your Username:</label>
+        <input type="text" id="user" name="username" />
+		
+		<br>
+		<label for="u">Your Password:</label>
+        <input type="text" id="pass" name="password"  />
+		</div>
+		
+		<br>
+    <input type="submit" value="Submit" onClick="checkEmail()">
+		<e id="demo"></e>
+		
+	</body>
+</html>

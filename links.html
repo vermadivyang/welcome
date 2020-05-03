@@ -1,0 +1,36 @@
+<!--  the links(good)-->
+<!DOCKTYPE html>
+<html>
+<head>
+<title>
+  TheMonkDiamondDiscovery.com/Password/Divyang/@copyright
+</title>
+<style>
+body {
+background-color : lightblue;
+padding: 30px;
+}
+</style>
+<script>
+function CheckP(){
+  var password  = document.getElementById("passwordBox");
+  var passText = password.value;
+
+  if(passText == "Think@D"){
+  alert(" welcome, Divyang");
+  return true;
+ }
+  alert("Access denied! Incorrect password!");
+  return false;
+}
+
+</script>
+</head>
+<body>
+
+<p style="font-size: 30pt">The Monk Diamond Discovery!</p>
+<p>Please enter your password to see this website.</p>
+<p>Password:<input  id="passwordBox" type="password"/></p>
+<a href = "MainPage.html" onclick="return CheckP()">Click here to submit password and see the site </a>
+</body>
+</html>

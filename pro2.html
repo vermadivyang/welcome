@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>Proflie/THINK</title>
+		<link rel="icon" href="thinkLOGO.png">
+		<script type="text/javascript" src="welcomescript.js"></script>
+        <style>
+		
+label {
+    display: block;
+    font: .9rem 'Fira Sans', sans-serif;
+}
+
+input[type='submit'],
+label {
+    margin-top: 1rem;
+}
+
+body {
+margin:10;
+border: 10px solid black;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #ff531a;
+  position: sticky;
+  right: 0;
+  width: 100%;
+}
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}	
+
+.navbar a:hover {
+  float: left;
+  display: block;
+  background-color: #333;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}	
+
+.navbar a:hover {
+  float: left;
+  display: block;
+  background-color: #333;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.footer {
+   left: 0;
+   width:100%;
+   height:150px;
+   bottom: 0;
+   width: 100%;
+   background-color: #666666;
+   color: white;
+   text-align: center;
+}
+.h1 {
+  padding: 50px;
+  text-align: center;
+  font-size: 200%;
+  background-color: #00008B;
+  color: white;
+}
+
+.active {
+  background-color: #4CAF50;
+  margin: 0;
+ }
+ .navbar a:hover {
+  float: left;
+  display: block;
+  background-color: #333;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+--------
+
+* {box-sizing: border-box;}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  height:50%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+.bot{
+	align: center;
+}
+
+/* Float cancel and delete buttons and add an equal width */
+.cancelbtn, .deletebtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add a color to the cancel button */
+.cancelbtn {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Add a color to the delete button */
+.deletebtn {
+  background-color: #f44336;
+}
+
+/* Add padding and center-align text to the container */
+.container {
+  padding: 16px;
+  text-align: center;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Modal Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and delete button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .deletebtn {
+     width: 100%;
+  }
+}
+------------------
+#video {
+  border: 1px solid black;
+  box-shadow: 2px 2px 3px black;
+  width:320px;
+  height:240px;
+}
+
+#photo {
+  border: 1px solid black;
+  box-shadow: 2px 2px 3px black;
+  width:320px;
+  height:240px;
+}
+
+#canvas {
+  display:none;
+}
+
+.camera {
+  width: 340px;
+  display:inline-block;
+}
+
+.output {
+  width: 340px;
+  display:inline-block;
+}
+
+#startbutton {
+  display:block;
+  position:relative;
+  margin-left:auto;
+  margin-right:auto;
+  bottom:32px;
+  background-color: rgba(0, 150, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  font-family: "Lucida Grande", "Arial", sans-serif;
+  color: rgba(255, 255, 255, 1.0);
+}
+
+.contentarea {
+  font-size: 16px;
+  font-family: "Lucida Grande", "Arial", sans-serif;
+  width: 760px;
+}
+		</style>
+    </head>
+    <body>
+	<div class="h1">
+        <h1>Your Profile</h1>
+		</div>
+		<div class="navbar">
+			<a href="Contact2.html">Contact</a>
+			<a href="Atom2.html">Research</a>
+			<a href="join2.html">Join us</a>
+			<a href="About2.html">About Us</a>
+			<a href="password.html">Log out</a>
+			<a href="Home2.html">Home</a> 
+			<a href="SeC.html">COVID-19</a>
+			<a href=""></a> 
+			<a href=""></a> 
+			<a href=""></a> 
+			<a href=""></a> 
+			<a href=""></a> 
+			<a href=""></a> 
+			<a href=""></a> 
+			<a href=""></a> 
+			<a href=""></a> 
+			<a href=""></a> 
+			<a href=""></a> 
+			<a href=""></a> 
+			<a href=""></a> 
+			<a href=""></a> 
+			<a href=""></a> 
+			<a href=""></a> 
+			<a href=""></a> 
+			<a href=""></a> 
+			<a href=""></a> 
+			<a href=""></a>  
+			<a></a> 
+			<a></a> 
+			<a></a> 
+			<a></a> 
+			<a></a>
+			<a></a> 
+			<div class ="cir">
+			<a class="active" href="pro2.html"><img style="width: 40px; height: 40px; border-radius: 100%; " src="pff.png" alt="Avatar" class="avatar"></a> 
+		</div>
+		</div>
+		
+		<h1>You are signed in as:</h1><h1 id="name">Divyang Verma</h1>
+		<br>
+		
+		<img src="pff.png" style="width: 150px; height: 150px;"></img>
+		<p>To chage your picture<br> take a picture and name<br> it <b>pff.png</b></p> 
+		
+		
+		<!-- <div class="contentarea"> -->
+	<!-- <h1> -->
+		<!-- MDN - WebRTC: Still photo capture demo -->
+	<!-- </h1> -->
+	<!-- <p> -->
+		<!-- This example demonstrates how to set up a media stream using your built-in webcam, fetch an image from that stream, and create a PNG using that image. -->
+	<!-- </p> -->
+  <!-- <div class="camera"> -->
+    <!-- <video id="video">Video stream not available.</video> -->
+    <!-- <button id="startbutton">Take photo</button>  -->
+  <!-- </div> -->
+  <!-- <canvas id="canvas"> -->
+  <!-- </canvas> -->
+  <!-- <div class="output"> -->
+    <!-- <img id="photo" alt="The screen capture will appear in this box.">  -->
+  <!-- </div> -->
+  
+  
+		<br>
+		
+		<label for="u"><b>Change Your Name:</b></label>
+        <input type="text" id="name4" name="username" />
+		<button onclick="name5()" style="width: 100px;">Save</button>
+<br><br><br>
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width: 100px;">Delete</button>
+
+
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">X</span>
+  <form class="modal-content" >
+    <div class="container">
+      <h1>Delete Account</h1>
+      <p><b>Note:</b> you can not undo this action</p>
+    
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="button" onclick="window.location.href='loder.html'" class="deletebtn">Delete</button>
+      </div>
+    </div>
+  </form>
+</div>
+		
+<script>
+
+// Get the modal
+var modal = document.getElementById('id01');
+
+function name5 (){
+var NaMe=document.getElementById("name4").value;
+document.cookie = "cook="+NaMe;
+var coki= getCookie("cook");
+
+document.getElementById("name").innerHTML = coki;
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none"
+	}
+}
+
+function getCookie(name) {
+var nameEQ = name + "=";
+//alert(document.cookie);
+var ca = document.cookie.split(';');
+for(var i=0;i < ca.length;i++) {
+var c = ca[i];
+while (c.charAt(0)==' ') c = c.substring(1);
+if (c.indexOf(nameEQ) != -1) return c.substring(nameEQ.length,c.length);
+}
+return null;
+} 
+/////////////////////////
+<!-- (function() { -->
+  <!-- // The width and height of the captured photo. We will set the -->
+  <!-- // width to the value defined here, but the height will be -->
+  <!-- // calculated based on the aspect ratio of the input stream. -->
+
+  <!-- var width = 320;    // We will scale the photo width to this -->
+  <!-- var height = 0;     // This will be computed based on the input stream -->
+
+  <!-- // |streaming| indicates whether or not we're currently streaming -->
+  <!-- // video from the camera. Obviously, we start at false. -->
+
+  <!-- var streaming = false; -->
+
+  <!-- // The various HTML elements we need to configure or control. These -->
+  <!-- // will be set by the startup() function. -->
+
+  <!-- var video = null; -->
+  <!-- var canvas = null; -->
+  <!-- var photo = null; -->
+  <!-- var startbutton = null; -->
+
+  <!-- function startup() { -->
+    <!-- video = document.getElementById('video'); -->
+    <!-- canvas = document.getElementById('canvas'); -->
+    <!-- photo = document.getElementById('photo'); -->
+    <!-- startbutton = document.getElementById('startbutton'); -->
+
+    <!-- navigator.mediaDevices.getUserMedia({video: true, audio: false}) -->
+    <!-- .then(function(stream) { -->
+      <!-- video.srcObject = stream; -->
+      <!-- video.play(); -->
+    <!-- }) -->
+    <!-- .catch(function(err) { -->
+      <!-- console.log("An error occurred: " + err); -->
+    <!-- }); -->
+
+    <!-- video.addEventListener('canplay', function(ev){ -->
+      <!-- if (!streaming) { -->
+        <!-- height = video.videoHeight / (video.videoWidth/width); -->
+      
+        <!-- // Firefox currently has a bug where the height can't be read from -->
+        <!-- // the video, so we will make assumptions if this happens. -->
+      
+        <!-- if (isNaN(height)) { -->
+          <!-- height = width / (4/3); -->
+        <!-- } -->
+      
+        <!-- video.setAttribute('width', width); -->
+        <!-- video.setAttribute('height', height); -->
+        <!-- canvas.setAttribute('width', width); -->
+        <!-- canvas.setAttribute('height', height); -->
+        <!-- streaming = true; -->
+      <!-- } -->
+    <!-- }, false); -->
+
+    <!-- startbutton.addEventListener('click', function(ev){ -->
+      <!-- takepicture(); -->
+      <!-- ev.preventDefault(); -->
+    <!-- }, false); -->
+    
+    <!-- clearphoto(); -->
+  <!-- } -->
+
+  <!-- // Fill the photo with an indication that none has been -->
+  <!-- // captured. -->
+
+  <!-- function clearphoto() { -->
+    <!-- var context = canvas.getContext('2d'); -->
+    <!-- context.fillStyle = "#AAA"; -->
+    <!-- context.fillRect(0, 0, canvas.width, canvas.height); -->
+
+    <!-- var data = canvas.toDataURL('image/png'); -->
+    <!-- photo.setAttribute('src', data); -->
+  <!-- } -->
+  
+  <!-- // Capture a photo by fetching the current contents of the video -->
+  <!-- // and drawing it into a canvas, then converting that to a PNG -->
+  <!-- // format data URL. By drawing it on an offscreen canvas and then -->
+  <!-- // drawing that to the screen, we can change its size and/or apply -->
+  <!-- // other changes before drawing it. -->
+
+  <!-- function takepicture() { -->
+    <!-- var context = canvas.getContext('2d'); -->
+    <!-- if (width && height) { -->
+      <!-- canvas.width = width; -->
+      <!-- canvas.height = height; -->
+      <!-- context.drawImage(video, 0, 0, width, height); -->
+    
+      <!-- var data = canvas.toDataURL('image/png'); -->
+      <!-- photo.setAttribute('src', data); -->
+    <!-- } else { -->
+      <!-- clearphoto(); -->
+    <!-- } -->
+  <!-- } -->
+
+  <!-- // Set up our event listener to run the startup process -->
+  <!-- // once loading is complete. -->
+  <!-- window.addEventListener('load', startup, false); -->
+<!-- })(); -->
+
+</script>
+		
+		
+		<br><br><br><br><br><br>
+		<div class=footer>
+			<p>Owner of think and this website: Divyang Verma</p>
+			<p>Contact: ___-___-____.</p>
+			<p>Maybe subject to copyright</p>
+		</div>
+		
+    </body>
+</html>

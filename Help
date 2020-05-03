@@ -1,0 +1,28 @@
+
+function checkUserName(){
+var user=document.getElementById("user").value;
+alert("Your Username is:   " user);
+}
+
+checkUserName();
+
+function checkPassword(){
+var pass=document.getElementById("pass").value;
+alert("Your Password is:   " pass);
+}
+checkPassword();
+
+
+
+
+
+
+
+
+
+
+<label for="u">Your Username:</label>
+        <input type="text" id="user" name="username" />
+		
+		<label for="u">Your Password:</label>
+        <input type="text" id="pass" name="password" />
