@@ -4,6 +4,7 @@
         
         <title>Contact/THINK</title>
 		<link rel="icon" href="thinkLOGO.png">
+		<link rel="stylesheet" href="global.css">
 		<script type="text/javascript" src="welcomescript.js"></script>
         <style>
 .h1 {
@@ -161,19 +162,16 @@ html {
   font-size: 17px;
 }
 
- {box-sizing: border-box;}
+///////////////
+* {box-sizing: border-box;}
 
 /* Button used to open the chat form - fixed at the bottom of the page */
 .open-button {
-  background-color: #666;
+  background-color: #000;
   color: white;
   padding: 16px 20px;
   border: none;
   cursor: pointer;
-  opacity: 0.6;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
   width: 280px;
 }
 
@@ -184,6 +182,7 @@ html {
   bottom: 0;
   right: 15px;
   border: 3px solid #f1f1f1;
+  z-index: 9;
 }
 
 /* Add styles to the form container */
@@ -230,7 +229,8 @@ html {
 /* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
-}
+} 
+
 		</style>
     </head>
     <body>
@@ -274,7 +274,7 @@ html {
 			<a></a> 
 			<a></a>
 			<div class ="realy">
-			<a class="active" href="pro2.html"><img style="width: 40px; height: 40px; border-radius: 100%;" src="pff.png" alt="Avatar" ></a> 
+			<a class="active" href="pro.html"><img style="width: 40px; height: 40px; border-radius: 100%;" src="un.png" alt="Avatar" ></a> 
 		</div>
 		</div>
 		
@@ -283,74 +283,62 @@ html {
 		<div class="column">
 			<div class="card">
 				<div class="container">
-					<p></p>
-					<h2> CONTACTS:</h2>
-					<h3> <br>PHONE:</h3>
-					<f> 123-456-7890</f>
-					<h3> <br>Email:</h3>
-					<f>Vermadeetya@gmail.com</f>
-					<h3> <br>Owner:</h3>
-					<f>Divyang Verma</f>
 					
-					<!-- <br><br> -->
-						<!-- <button class="open-button" onclick="openForm()" style="position: sticky;" >Contact us by leaveing a message</button> -->
-
-						<!-- <div class="chat-popup" id="myForm"> -->
-						<!-- <form class="form-container"> -->
-						<!-- <h1>Chat</h1> -->
-
-						<!-- <label for="msg"><b>Message</b></label> -->
-						<!-- <textarea placeholder="Type message to send to Deetya.." name="msg" id="cookie" required></textarea> -->
-
-						<!-- <button type="submit" onclick="alert1()" class="btn">Send</button> -->
-						<!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
-						<!-- </form> -->
-						<!-- </div> -->
-						
+					
+					
+<div style="background-color:lightgrey;float: left; width: 200px;margin:10px">
+ 
+ 
+ <h2 style="margin:10px">Latest News</h2>
+		<p style="margin:10px">Do you know the latest on COVID-19? Want to learn more?</p>
+		<p style="margin:10px">Click on these links for more infomation on COVID, or go to our new <a href="Sec.html">Covid count page</a></p>
+		<br>
+		<a style="margin:10px" href="https://www.bing.com/covid/local/unitedstates" target="_blank" >Covid tracker</a>
+		<br>
+		<br>
+		<a style="margin:10px" href="https://covid19.who.int/"  target="_blank">WHO covid World</a>
+		<br>
+		<br>
+		<a style="margin:10px" href="https://www.cdc.gov/coronavirus/2019-ncov/index.html" target="_blank" >CDC website</a>
+		<br>
+		<br>
+		<a style="margin:10px" href="https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html"  target="_blank">Click here if you are sick!</a>
+		<br>
+		<br>
+		<a style="margin:10px" href="https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html#cdc-chat-bot-open"  target="_blank">CDC testing </a>
+		<br><br>
+ </div>
+ 
+ <div style="float: left; width: 500px;margin:25px">
+					<h1> Contact us:</h1>
+					<h3><b>Get in touch and let us know how we can help.</b> </h3>
+					<h3> <br>PHONE:</h3>
+					<f><i> +1 123-456-7890 </i></f>
+					<h3> <br>Email:</h3
+					<f><i>
+						<p><a href="mailto:vermadeetya@gmail.com">vermadeetya@gmail.com</a></p>
+					</i></f>
+					<h3> <br>Owner:</h3>
+					<f><i> Divyang Verma </i></f>
 					<p></p>
-				</div>
+		</div>
+		
+		
+		<div style="background-color:lightgrey;float: right; width: 400px;margin:10px">
+		 <img src="Talk.png" style="width:100%">
+		</div>
+		
+ <br style="clear: left;" />
+ 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
-<script>
-<!-- function alert1(){ -->
-<!-- var chat2 = document.getElementById("cookie").value; -->
-<!-- document.cookie = "SEND = UNKONW sent you: "+chat2; -->
-<!-- alert("You sent deetya: " + chat2) -->
-<!-- } -->
-
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-
-////////////////////
-
-function getCookie(name) {
-var nameEQ = name + "=";
-//alert(document.cookie);
-var ca = document.cookie.split(';');
-for(var i=0;i < ca.length;i++) {
-var c = ca[i];
-while (c.charAt(0)==' ') c = c.substring(1);
-if (c.indexOf(nameEQ) != -1) return c.substring(nameEQ.length,c.length);
-}
-return null;
-} 
-</script>
-	
-		<c><br><br><br><br><br><br><br><br><br></c>
-		
-		<div class=footer>
-			<p>Owner of think and this website: Divyang Verma</p>
-			<p>Contact: ___-___-____.</p>
-			<p>Maybe subject to copyright</p>
-		</div>
+		<c><br><br><br><br></c>
+		<div include-footer="footer.html"></div> 
+		<script>
+		includeFooter();
+		</script>
 		
     </body>
 </html>

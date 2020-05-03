@@ -50,6 +50,26 @@ request.onload = function () {
 	  
       card.appendChild(i);
 	  
+	  const j = document.createElement('p');
+	  j.textContent = "Above information is real time information based on WHO api call."
+	  j.textContent += "You can come back to this page at any point in time to learn more about the latest count";
+	  j.textContent += "Information is sourced from corona-apis and here is the link if you want to learn more about it."
+	 
+      card.appendChild(j);
+	  
+	  var aLink = document.createElement('a');  
+      var link = document.createTextNode("Corona-API"); 
+	  aLink.appendChild(link);    
+	   aLink.href = "https://corona-api.com/countries/us";  	  
+	   card.appendChild(aLink);
+	  
+	  
+	  const k = document.createElement('p');
+	  k.textContent = ""
+	  
+      card.appendChild(k);
+	  
+	  
       container.appendChild(card);
       
 }

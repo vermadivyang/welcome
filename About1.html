@@ -5,8 +5,13 @@
         <title>Home/THINK</title>
 		<link rel="icon" href="thinkLOGO.png">
 		<script type="text/javascript" src="welcomescript.js"></script>
-        <style>
 		
+		<link rel="stylesheet" href="global.css">
+        <style>
+.paraAlign {
+margin:10px;line-height:1.5;  text-align: justify;
+}
+
 label {
     display: block;
     font: .9rem 'Fira Sans', sans-serif;
@@ -199,7 +204,7 @@ html {
       <img src="IMG_0277.jpg" alt="Deetya" style="width:100%">
       <div class="container">
         <h2>Deetya Verma</h2>
-        <p class="title">Art Director & Designer</p>
+        <p class="title">Art Director & Lead Designer</p>
         <p>Deetya Verma was born in 2017, November 7th. She Gives the Company artistic and creative ideas and Design some of the things in Think. She is the sister of the CEO. You can send her qestions about the company with her email.</p>
         <p>Vermadeetya@email.com</p>
       </div>
@@ -211,8 +216,8 @@ html {
       <img src="Divyang.jpg" alt="divyang" style="width:100%">
       <div class="container">
         <h2>Divyang Verma</h2>
-        <p class="title">CEO & Top coder</p>
-        <p>Divyang Verma was born in 2009, december 26th. He is the main-coder and the CEO of Think, and his sister is the art director of the company. His mom and Dad are the Architects.</p>
+        <p class="title">CEO & Lead coder</p>
+        <p>Divyang Verma was born in 2009, december 26th. He is the main-coder and the CEO of Think, and his sister is the Art Director of the company. His mom and Dad are the Architects.</p>
         <p>DivyangVerma.26@gmail.com</p>
       </div>
     </div>
@@ -238,11 +243,10 @@ html {
 		</div>
 		<br>
 		
-		<div class=footer>
-			<p>Owner of think and this website: Divyang Verma</p>
-			<p>Contact: ___-___-____.</p>
-			<p>Maybe subject to copyright</p>
-		</div>
+		<div include-footer="footer.html"></div> 
+		<script>
+		includeFooter();
+		</script>
 		
     </body>
 </html>
