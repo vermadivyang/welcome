@@ -20,33 +20,33 @@ request.onload = function () {
       h1.textContent = "Latest Covid Imformation in USA";
 //death_rate":5.809750639076097,"recovery_rate":14.255519333650192,
       const p = document.createElement('p');
-	  p.textContent = "Deaths: "+ data1.data.latest_data.deaths;
+	  p.textContent = "Casualties: "+ data1.data.latest_data.deaths;
 	  
 	  card.appendChild(h1);
       card.appendChild(p);
 	  
 	  const q = document.createElement('p');
-	  q.textContent = "confirmed: "+ data1.data.latest_data.confirmed;
+	  q.textContent = "Confirmed cases: "+ data1.data.latest_data.confirmed;
 	  
       card.appendChild(q);
 	  
 	  const e = document.createElement('p');
-	  e.textContent = "recovered: "+ data1.data.latest_data.recovered;
+	  e.textContent = "Recovered: "+ data1.data.latest_data.recovered;
 	  
       card.appendChild(e);
 	  
 	  const b = document.createElement('p');
-	  b.textContent = "critical: "+ data1.data.latest_data.critical;
+	  b.textContent = "Critical: "+ data1.data.latest_data.critical;
 	  
       card.appendChild(b);
 	  
 	  const f = document.createElement('p');
-	  f.textContent = "death rate: "+ data1.data.latest_data.death_rate;
+	  f.textContent = "Death rate: "+ data1.data.latest_data.calculated.death_rate;
 	  
       card.appendChild(f);
 	  
 	  const i = document.createElement('p');
-	  i.textContent = "recovery rate: "+ data1.data.latest_data.recovery_rate;
+	  i.textContent = "Recovery rate: "+ data1.data.latest_data.calculated.recovery_rate;
 	  
       card.appendChild(i);
 	  
@@ -69,6 +69,12 @@ request.onload = function () {
 	  
       card.appendChild(k);
 	  
+	  const m = document.createElement('p');
+	  m.textContent = "0.0479377763158% of the world in 4 march 2020 has COVID-19 ";
+	  var case1 = data1.data.latest_data.confirmed;
+	  m.textContent = "confirmed: "+ case1;
+	  
+      card.appendChild(m);
 	  
       container.appendChild(card);
       

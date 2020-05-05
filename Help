@@ -12,15 +12,6 @@ alert("Your Password is:   " pass);
 }
 checkPassword();
 
-
-
-
-
-
-
-
-
-
 <label for="u">Your Username:</label>
         <input type="text" id="user" name="username" />
 		
