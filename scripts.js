@@ -17,7 +17,7 @@ request.onload = function () {
       card.setAttribute('class', 'card');
 
       const h1 = document.createElement('h1');
-      h1.textContent = "Latest Covid Imformation in USA";
+      h1.textContent = "Latest Covid Information in USA";
 //death_rate":5.809750639076097,"recovery_rate":14.255519333650192,
       const p = document.createElement('p');
 	  p.textContent = "Casualties: "+ data1.data.latest_data.deaths;
