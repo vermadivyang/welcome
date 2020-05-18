@@ -18,7 +18,8 @@ request.onload = function () {
 
       const h1 = document.createElement('h1');
       h1.textContent = "Latest Covid Information in USA";
-//death_rate":5.809750639076097,"recovery_rate":14.255519333650192,
+//death_rate":5.809750639076097,"recovery_rate":14.255519333650192;
+
       const p = document.createElement('p');
 	  p.textContent = "Casualties: "+ data1.data.latest_data.deaths;
 	  
@@ -52,7 +53,7 @@ request.onload = function () {
 	  
 	  const j = document.createElement('p');
 	  j.textContent = "Above information is real time information based on WHO api call."
-	  j.textContent += "You can come back to this page at any point in time to learn more about the latest count";
+	  j.textContent += "You can come back to this page at any point in time to learn more about the latest count. ";
 	  j.textContent += "Information is sourced from corona-apis and here is the link if you want to learn more about it."
 	 
       card.appendChild(j);
@@ -64,17 +65,16 @@ request.onload = function () {
 	   card.appendChild(aLink);
 	  
 	  
-	  const k = document.createElement('p');
-	  k.textContent = ""
+	  // const k = document.createElement('p');
+	  // k.textContent = ""
 	  
-      card.appendChild(k);
+      // card.appendChild(k);
 	  
-	  const m = document.createElement('p');
-	  m.textContent = "0.0479377763158% of the world in 4 march 2020 has COVID-19 ";
-	  var case1 = data1.data.latest_data.confirmed;
-	  m.textContent = "confirmed: "+ case1;
+	  // const m = document.createElement('p');
+	  // m.textContent = "0.0479377763158% of the world in 4 march 2020 has COVID-19 ";
+	  // 
 	  
-      card.appendChild(m);
+      // card.appendChild(m);
 	  
       container.appendChild(card);
       
