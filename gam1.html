@@ -1,0 +1,54 @@
+<!-- game; erase them all -->
+<!DOCKTYPE html>
+<html>
+<body>
+<h1>Game 1 - let's have some fun!</h1>
+<h4 style="color: gray;">Oh-no, the paint is falling! Can you wipe it all of with your mouse before your mom and dad gets home?</h4>
+<h3 style="color: red;">-OR-</h3>
+<h4 style="color: gray;">Oh-no, you are a snake and, the sand is falling! Quickly grow with your mouse and beat the sand to the top!</h4>
+
+<button style="background-color: gray;" onclick="Game_1()">Play</button>
+
+<script>
+function setup() {        
+		  createCanvas(1000, 1000);
+		  background('red'); 
+	}
+
+function draw() {          
+	  
+		  var x = random(1000);
+		  var y = random(1000);
+		  var x1 = random(1000);
+		  var y1 = random(1000);
+		  var x2 = random(1000);
+		  var y2 = random(1000);
+		  var x0 = random(1000);
+		  var y0 = random(1000);
+		  
+		  var add1 = 100;
+		  
+		  var r = random(255);
+		  var g = random(255);
+		  var b = random(255);
+		  
+		  fill(200,0,0);
+		  rect(mouseX,mouseY,add1,add1); 
+		  add1 = add1 + 1;
+		  
+		  fill(r,g,b);
+		  noStroke();
+		  ellipse(x,y,20,20);
+		  ellipse(x1,y1,40,40);
+		  ellipse(x2,y2,60,60);
+		  ellipse(x0,y0,10,10);
+	}
+
+function Game_1(){
+	setup();
+	draw();
+}
+  Game_1();
+  </script>
+  </body>
+  </html>

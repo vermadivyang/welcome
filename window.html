@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+var myWindow;
+
+function openWin(time) {
+	if (confirm("Do you want to proseed?")) {
+			myWindow = window.open("game1.js", "myWindow", "width=1580, height=800");
+	  } else {
+			var time = "You do not want to play?";
+
+			alert(Date());
+	  }
+}
+</script>
+</head>
+<body>
+
+<button onclick="openWin()">Game 1</button>
+</body>
+</html>
