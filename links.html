@@ -13,10 +13,10 @@ padding: 30px;
 </style>
 <script>
 function CheckP(){
-  var password  = document.getElementById("passwordBox");
+  var password  = document.getElementById("hello");
   var passText = password.value;
 
-  if(passText == "Think@D"){
+  if(passText == "hello"){
   alert(" welcome, Divyang");
   return true;
  }
@@ -30,7 +30,7 @@ function CheckP(){
 
 <p style="font-size: 30pt">The Monk Diamond Discovery!</p>
 <p>Please enter your password to see this website.</p>
-<p>Password:<input  id="passwordBox" type="password"/></p>
+<p>Password:<input  id="hello" type="password"/></p>
 <a href = "MainPage.html" onclick="return CheckP()">Click here to submit password and see the site </a>
 </body>
 </html>

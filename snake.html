@@ -10,41 +10,44 @@
                 tickNumber: 0,
                 timer: null,
                 score: 0,
-                board: board: [
+                board: [
                     "###############",
                     "#             #",
                     "#             #",
                     "#     ##      #",
                     "#     ##      #",
-                    "#      #      #############",
-                    "#      #                  #",
+                    "#             #############",
+                    "#                         #",
                     "#                         #",
                     "#             ######      #",
                     "#             #           #",
-                    "#    #        #           #",
-                    "#    #                    #",
-                    "#    #                    #",
+                    "#                         #",
+                    "#                         #",
+                    "#                         #",
                     "#             ###         #",
                     "#       #########       ###",
                     "#                         #",
                     "#                         #",
                     "#                         #",
-                    "#                         #",
-                    "#                        ##",
-                    "#                         #",
-                    "#         ######          #",
-                    "#         #  # #          #",
-                    "#         # #  #         ##",
-                    "#         ######          #",
-                    "#                         #",
-                    "#                         #",
-                    "#                        ##",
+                    "#                               ",
+                    "#                        #######################################",
+                    "#                                                              #",
+                    "#         ######                                               #",
+                    "#         #  # #                                               #",
+                    "#         # #  #         ###############                       #",
+                    "#         ######         #                                     #",
+                    "#                        #                                     #",
+                    "#                        #                                     #",
+                    "#                        ######################################",
                     "############################",
 
 
                 ],
                 fruit: [
                     {x: 1, y: 3},
+                ],
+				fruit1: [
+                    {x: 1, y: 1},
                 ],
                 tick: function() {
                     window.clearTimeout(game.timer);
@@ -54,8 +57,8 @@
                     }
                     var result = snake.move();
                     if(result == "gameover") {
-                        alert("Game over! Player Scored: " + game.score);
-                        return;
+                        alert("you lost :(");
+						window.close;
                     }
                     graphics.drawGame();
                     game.timer = window.setTimeout("game.tick()", 200);
@@ -66,6 +69,9 @@
                     var randomLocation = {x: randomX, y: randomY};
                     if(game.isEmpty(randomLocation) && !game.isFruit(randomLocation)) {
                         game.fruit.push(randomLocation);
+                    }
+					if(game.isEmpty(randomLocation) && !game.isFruit1(randomLocation)) {
+						game.fruit1.push(randomLocation);
                     }
                 },
                 isEmpty: function(location) {
@@ -84,6 +90,18 @@
                     }
                     return false;
                 },
+				
+				isFruit1: function(location) {
+                    for (var fruitNumber1 = 0; fruitNumber1 < game.fruit1.length; fruitNumber1++){
+                        var fruit1 = game.fruit1[fruitNumber1];
+                        if(location.x == fruit1.x && location.y == fruit1.y) {
+                            game.fruit1.splice(fruitNumber, 1);
+                            return true;
+                        }
+                    }
+                    return false;
+                },
+				
                 isSnake: function(location) {
                     for (var snakePart = 0; snakePart < snake.parts.length; snakePart++) {
                         var part = snake.parts[snakePart];
@@ -115,7 +133,7 @@
                     var location = snake.nextLocation();
                     if(game.isWall(location)
                         || game.isSnake(location)) {
-                        
+                        return "gameover";
                     }
                     if(game.isEmpty(location)) {
                         snake.parts.unshift(location);
@@ -125,11 +143,16 @@
                         snake.parts.unshift(location);
                         game.score++;
                     }
+					if(game.isFruit1(location)) {
+                        snake.parts.unshift(location);
+                        game.score = score - 1;
+                    }
                 }
             };
         var graphics = {
         canvas: document.getElementById("canvas"),
-        squareSize: 30,
+        squareSize: 25,
+		appleSize: 10,
             drawBoard: function(ctx) {
                 var currentYoffset = 0;
                 game.board.forEach(function checkLine(line) {
@@ -145,20 +168,41 @@
                     currentYoffset += graphics.squareSize;
                 });
             },
+			
+			drawBoard2: function(ctx) {
+                var currentYoffset2 = 0;
+                game.board.forEach(function checkLine(line2) {
+                    line2 = line2.split('');
+                    var currentXoffset2 = 0;
+                    line2.forEach(function checkCharacter(character2) {
+                        currentXoffset2 += graphics.appleSize;
+                        });
+                    currentYoffset2 += graphics.appleSize;
+                });
+            },
+			
             draw: function(ctx, source, color) {
                 source.forEach(function(part) {
                     var partXlocation = part.x * graphics.squareSize;
                     var partYlocation = part.y * graphics.squareSize;
                     ctx.fillStyle = color;
                     ctx.fillRect(partXlocation, partYlocation, graphics.squareSize, graphics.squareSize);
+					
+					ctx.fillStyle = "ocean";
+					ctx.font = "28px Arial";
+					ctx.fillText("Points: " + game.score, 450, 50);
                 });
             },
             drawGame: function () {
                 var ctx = graphics.canvas.getContext("2d");
                 ctx.clearRect(0, 0, graphics.canvas.width, graphics.canvas.height);
+				
                 graphics.drawBoard(ctx);
-                graphics.draw(ctx, game.fruit, "coral");
-                graphics.draw(ctx, snake.parts, "blue");
+				graphics.draw(ctx, game.fruit1, "tan");
+                graphics.draw(ctx, snake.parts, "green");
+				
+				graphics.drawBoard2(ctx);
+				graphics.draw(ctx, game.fruit, "red");
             }
         };
         var gameControl = {

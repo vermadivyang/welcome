@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Run!</title>
+	<style>
+		body{
+		  margin: 0;
+		  background-image: url("code.png");
+		}
+	</style>
+</head>
+<body>
+<form>
+
+    <div style="background-color: darkblue; height: 50px; align: center;">
+	<input type="text" id="searchBar"  onclick="searchD()" style="border-radius: 25px; width: 65%; height: 15px; background-color: lightgreen; align: center;" placeholder="  Search Think.Solar">
+	<button style="background-color: lightblue; height:30px; width:45px; border-radius: 30pt;">Find</button></input>
+	</div>
+	<br><br><br><br><br><br><br><br>
+	
+	<div style="color: white;">
+	<h1 style="font-size: 50pt; text-align: center;">Think.Solar</h1>
+	<p style="text-align: center;" >Let's go solar today</p><a href="" onclick="appThink()"><!--<img style="height: 60px; width: 45px; border-radius: 10px; bottom:400; right: 100;" src="ThinkSolar.png"></img></a> -->
+	<center><input type="text" id="searchBar"  onclick="searchD()" style="border-radius: 25px; width: 30%; height: 30px; " placeholder="  This text box for questions"></input></center>
+	</div>
+	
+<script>
+var search = document.getElementById("searchBar").value;
+if(search === "A"){
+     alert("Welcome!");
+}
+</script>
+</form>
+</body>
+</html>

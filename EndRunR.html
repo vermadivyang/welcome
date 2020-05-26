@@ -1,45 +1,61 @@
+<!--  The flash! -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Run!</title>
+    <title></title>
+    <style>
+    </style>
 </head>
 <body>
-    <canvas id="game" width="640" height="480"></canvas>
+    <canvas id="game" width="1500" height="720"></canvas>
     <script>
+        function myFunction() {
+  document.getElementById("demo").innerHTML = alert("I see you click the button! Bad,Bad!!");
+}
         var canvas = document.getElementById("game");
         var ctx = canvas.getContext("2d");
         function floor(x, height) {
             this.x = x;
-            this.width = 700;
+            this.width = 1500;
             this.height = height;
         }
         var world = {
-            height: 480,
-            width: 640,
+            height: 720,
+            width: 1500,
             gravity: 10,
-            highestFloor: 240,
-            speed: 5,
+            highestFloor: 1000,
+            speed: 12,
             distanceTravelled: 0,
-            maxSpeed: 40,
+            points: 0,
+            smallestFloor: 990,
             tilesPassed: 0,
             autoScroll: true,
+            MaxfloorHeight: 150,
+			binu: 8,
             floorTiles: [
-                new floor(0, 140)
+                   new floor(0, 150)
             ],
+            
+           
             stop: function() {
                 this.autoScroll = false;
+                
             },
             moveFloor: function() {
                 for(index in this.floorTiles) {
                     var tile = this.floorTiles[index];
+					this.speed += 0.0001;
                     tile.x -= this.speed;
-                    this.distanceTravelled += this.speed;
+                    this.distanceTravelled += 0.01;
+                    this.points += this.binu;
                 }
+
             },
             addFutureTiles: function() {
                 if(this.floorTiles.length >= 3) {
                     return;
                 }
+                
                 var previousTile = this.floorTiles[this.floorTiles.length - 1];
                 var biggestJumpableHeight = previousTile.height + player.height * 3.5;
                 if(biggestJumpableHeight > this.highestFloor) {
@@ -54,9 +70,8 @@
                 for(index in this.floorTiles) {
                     if(this.floorTiles[index].x <= -this.floorTiles[index].width) {
                         this.floorTiles.splice(index, 1);
-                        this.tilesPassed++;
+                        this.tilesPassed--;
                         if(this.tilesPassed % 3 == 0 && this.speed < this.maxSpeed) {
-                            this.speed++;
                         }
                     }
                 }
@@ -68,30 +83,53 @@
                         return tile.height;
                     }
                 }
-                return -1;
+                return -3;
             },
+			
+			
             tick: function() {
-                if(!this.autoScroll) {
-                    return;
-                }
-                this.cleanOldTiles();
-                this.addFutureTiles();
-                this.moveFloor();
+				if(this.points > 100000) {
+					this.autoScroll = true;
+					this.speed += 2;
+					if(this.points > 25000){
+						sky = ctx.fillStyle = "lightblue";
+						ground = ctx.fillStyle = "white";
+					} 
+					if(this.speed > 1600){
+						alert("You win! Your points are: " + this.points);
+						window.close();
+					}
+				}
+							
+				if(!this.autoScroll) {
+					alert("You lost");
+					window.close();
+						
+				}
+
+				this.cleanOldTiles();
+				this.addFutureTiles();
+				this.moveFloor();
             },
+			
             draw: function() {
-                ctx.fillStyle = "cyan";
+                var sky = ctx.fillStyle = "gray";
                 ctx.fillRect (0, 0, this.width, this.height);
                 for(index in this.floorTiles) {
                     var tile = this.floorTiles[index];
                     var y = world.height - tile.height;
-                    ctx.fillStyle = "indigo";
-                    ctx.fillRect(tile.x, y, tile.width, tile.height);
+                    var ground = ctx.fillStyle = "blue";
+                       ctx.fillRect(tile.x, y, tile.width, tile.height);
                 }
-                ctx.fillStyle = "white";
+				
+                ctx.fillStyle = "ocean";
                 ctx.font = "28px Arial";
                 ctx.fillText("Speed: " + this.speed, 10, 40);
-                ctx.fillText("Travelled: " + this.distanceTravelled, 10, 75);
+                ctx.fillText("Distance: " + this.distanceTravelled, 10, 75);
+				ctx.fillText("Points: " + this.points, 10, 110);
+                ctx.fillText("Level 3, The rainy pacific ocean", 10, 145);
             }
+            
         };
         var player = {
             x: 160,
@@ -100,13 +138,16 @@
             width: 20,
             downwardForce: world.gravity,
             jumpHeight: 0,
+			
+
             getDistanceFor: function(x) {
                 var platformBelow = world.getDistanceToFloor(x);
-                return world.height - this.y - platformBelow;
+				var dis = world.height - this.y - platformBelow
+                return dis + dis;
             },
             applyGravity: function() {
                 this.currentDistanceAboveGround = this.getDistanceFor(this.x);
-                var rightHandSideDistance = this.getDistanceFor(this.x + this.width);
+                var rightHandSideDistance = this.getDistanceFor(this.x + this.width + this.width);
                 if(this.currentDistanceAboveGround < 0 || rightHandSideDistance < 0) {
                     world.stop();
                 }
@@ -120,7 +161,7 @@
                 }
                 if(this.downwardForce < 0) {
                     this.jumpHeight += (this.downwardForce * -1);
-                    if(this.jumpHeight >= player.height * 6) {
+                    if(this.jumpHeight >= player.height * 10) {
                         this.downwardForce = world.gravity;
                         this.jumpHeight = 0;
                     }
@@ -130,27 +171,81 @@
                 var floorHeight = world.getDistanceToFloor(this.x, this.width);
                 var onTheFloor = floorHeight == (world.height - this.y);
                 if(onTheFloor) {
-                    this.downwardForce = -8;
+                    this.downwardForce = -7;
                 }
+                
             },
             tick: function() {
                 this.processGravity();
                 this.applyGravity();
+                
             },
             draw: function() {
-                ctx.fillStyle = "mediumvioletred";
-                ctx.fillRect(player.x, player.y - player.height, this.height, this.width);
+				
+				var p_h = player.height - 5;
+				var p_w = player.width - 5;
+				
+				var t_w = this.width - 5;
+				var t_h = this.height - 5;
+				
+				var p_x = player.x + 2;
+				var p_y = player.y - 2;
+				
+				//lighting
+				var l_h1 = player.height - 15;
+				var l_w1 = player.width + 10;
+				
+				var l_w2 = this.width - 15;
+				var l_h2 = this.height + 10;
+				
+				//The player - yellow square
+				var l_x = player.x - 30;
+				// y1 or lighting 1
+				var l_y1 = player.y - 2;
+				//y2 or lighting 2
+				var l_y2 = player.y - 12;
+				
+				
+				//flash body
+                ctx.fillStyle = "red";
+                var rec = ctx.fillRect(player.x, player.y - player.height, this.height, this.width);
+                ctx.fillRect(player.x, player.y - player.height, this.height, this.width); 
+				
+                ctx.fillStyle = "gold";
+                var rec = ctx.fillRect(p_x, p_y - p_h, t_h, t_w);
+                ctx.fillRect(p_x, p_y - p_h, t_h, t_w);
+
+
+				//The lighting 1(bottom)
+				ctx.fillStyle = "banana";
+                var rec = ctx.fillRect(l_x, l_y1 - l_h1, l_h2, l_w2);
+                ctx.fillRect(l_x, l_y1 - l_h1, l_h2, l_w2); 
+				
+				
+				//The lighting 2(top)
+				ctx.fillStyle = "banana";
+                var rec = ctx.fillRect(l_x, l_y2 - l_h1, l_h2, l_w2);
+                ctx.fillRect(l_x, l_y2 - l_h1, l_h2, l_w2); 
+				
             }
+				
+
         };
+		
         window.addEventListener("keypress", function(keyInfo) { player.keyPress(keyInfo); }, false);
-        function tick() {
+        function tick() { 
             player.tick();
             world.tick();
             world.draw();
             player.draw();
             window.setTimeout("tick()", 1000/60);
-        }
-        tick();
+			
+		}
+            
+		
+		
+        tick();       
     </script>
+    
 </body>
 </html>

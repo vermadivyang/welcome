@@ -10,41 +10,22 @@
                 tickNumber: 0,
                 timer: null,
                 score: 0,
-                board: board: [
+                board: [
                     "###############",
                     "#             #",
                     "#             #",
                     "#     ##      #",
+                    "#    ####     #",
+                    "#    ####     #",
                     "#     ##      #",
-                    "#      #      #############",
-                    "#      #                  #",
-                    "#                         #",
-                    "#             ######      #",
-                    "#             #           #",
-                    "#    #        #           #",
-                    "#    #                    #",
-                    "#    #                    #",
-                    "#             ###         #",
-                    "#       #########       ###",
-                    "#                         #",
-                    "#                         #",
-                    "#                         #",
-                    "#                         #",
-                    "#                        ##",
-                    "#                         #",
-                    "#         ######          #",
-                    "#         #  # #          #",
-                    "#         # #  #         ##",
-                    "#         ######          #",
-                    "#                         #",
-                    "#                         #",
-                    "#                        ##",
-                    "############################",
-
-
+                    "#             #",
+                    "#             #",
+          "#             #",
+          "#             #",
+                    "###############"
                 ],
                 fruit: [
-                    {x: 1, y: 3},
+                    {x: 1, y: 1},
                 ],
                 tick: function() {
                     window.clearTimeout(game.timer);
@@ -55,7 +36,8 @@
                     var result = snake.move();
                     if(result == "gameover") {
                         alert("Game over! Player Scored: " + game.score);
-                        return;
+                        return; 
+						
                     }
                     graphics.drawGame();
                     game.timer = window.setTimeout("game.tick()", 200);
@@ -115,7 +97,7 @@
                     var location = snake.nextLocation();
                     if(game.isWall(location)
                         || game.isSnake(location)) {
-                        
+                        return "gameover";
                     }
                     if(game.isEmpty(location)) {
                         snake.parts.unshift(location);
