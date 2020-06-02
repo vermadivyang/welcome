@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Run!</title>
+    <title>Think.Solar</title>
 	<style>
 		body{
 		  margin: 0;
@@ -10,24 +10,38 @@
 	</style>
 </head>
 <body>
-<form>
+<form> 
 
     <div style="background-color: darkblue; height: 50px; align: center;">
-	<input type="text" id="searchBar"  onclick="searchD()" style="border-radius: 25px; width: 65%; height: 15px; background-color: lightgreen; align: center;" placeholder="  Search Think.Solar">
-	<button style="background-color: lightblue; height:30px; width:45px; border-radius: 30pt;">Find</button></input>
+	<input type="text" id="searchBar" style="border-radius: 25px; width: 65%; height: 15px; background-color: lightgreen; align: center;" placeholder="  Search Think.Solar" name="search1">
+	<button onclick="searchD()" style="background-color: lightblue; height:30px; width:45px; border-radius: 30pt;">Find</button></input>
 	</div>
+	<p id="demo"></p>
 	<br><br><br><br><br><br><br><br>
 	
 	<div style="color: white;">
 	<h1 style="font-size: 50pt; text-align: center;">Think.Solar</h1>
-	<p style="text-align: center;" >Let's go solar today</p><a href="" onclick="appThink()"><!--<img style="height: 60px; width: 45px; border-radius: 10px; bottom:400; right: 100;" src="ThinkSolar.png"></img></a> -->
-	<center><input type="text" id="searchBar"  onclick="searchD()" style="border-radius: 25px; width: 30%; height: 30px; " placeholder="  This text box for questions"></input></center>
+	<p style="text-align: center;" >Let's go solar today<a href="AboutSolar.html"> <img style="height: 20px; width: 20px; border-radius: 10px;" src="ThinkSolar.png"></img></a></p>
+	<center><input type="text" id="searchBar2" style="border-radius: 25px; width: 30%; height: 30px; " placeholder=" This text box for questions" name="search2">
+	<button id="searchBarButton2" onclick="searchD2()" style="border-radius: 10px;">
+	<img style="height: 20px; width: 20px; border-radius: 10px;" src="search.png">
+	</button></input></center>
 	</div>
 	
 <script>
-var search = document.getElementById("searchBar").value;
-if(search === "A"){
-     alert("Welcome!");
+function searchD(){
+	var search = document.getElementById("searchBar").value;
+	if(search === "hello"){
+		alert("searching hello...");
+		window.open("search.html");
+	}
+}
+
+function searchD2(){
+var search2 = document.getElementById("searchBar2").value;
+if(search2 === "bye"){
+     alert("Bye!");
+}
 }
 </script>
 </form>

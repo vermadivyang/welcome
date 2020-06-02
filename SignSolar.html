@@ -1,0 +1,118 @@
+<!DOCKERTYPE html>
+<html>
+<head>
+<style>
+	body{
+		background-color: black;
+	}
+	
+	---------------
+	
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 525px; /* Full width */
+  height: 600px; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: black;
+  background-color: black/* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 525px;
+}
+
+/* The Close Button */
+.close {
+  color: #1993fa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+a {text-decoration: none;}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+<body>
+
+<div id="myModal" class="modal">
+
+  <div class="modal-content">
+    <span class="close"><a href="search.html" style="color: #1993fa;"><img style="height: 30; width: 30;" src="x.png"></img></a></span>
+    
+	<center>
+  <div style="border: black solid 2px; width: 425px; height: 500px; background-color: lightgray; border-radius: 15px; margin-top: 10px;">
+  
+  <center>
+  <div style="border: black solid 5px; width: 200px; height: 60px; color: blue; text-align: center;">
+  <p><s>Find</s> or make a accout</p>
+  </div>
+  
+  <br><br><br>
+  <button style="border: white solid 2px; border-radius: 6px; height: 70; width: 300;">
+	<img width="30px" style="margin-top:7px; margin-right:8px" alt="" 
+                src="file:///C:/xampp_php/htdocs/welcome/Divyang.png" />DivyangVerma.26@gmail.com <p style="color: gray;">Divyang Verma</button>
+  
+  <br><br><br>
+<button style="border: white solid 2px; border-radius: 6px; height: 70; width: 300;">
+	<img width="30px" style="margin-top:7px; margin-right:8px" alt="" 
+                src="file:///C:/xampp_php/htdocs/welcome/Deetya.png" /> Deetyaverma@gmail.com <p style="color: gray;">Deetya Verma</p></button>  
+  
+  <br><br><br>
+<button style="border: white solid 2px; border-radius: 6px; height: 70; width: 300;">
+	<img width="20px" style="margin-top:7px; margin-right:8px" alt="" 
+                src="file:///C:/xampp_php/htdocs/welcome/add.png" />+ New accout<p style="color: gray;">If you do not have one</button>  
+  </center>
+  
+  </div>
+  </center>
+	
+  </div>
+
+</div>
+
+<script>
+var modal = document.getElementById("myModal");
+
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</head>
+</body>
+</html>
