@@ -146,55 +146,6 @@ hr {
      width: 100%;
   }
 }
-------------------
-#video {
-  border: 1px solid black;
-  box-shadow: 2px 2px 3px black;
-  width:320px;
-  height:240px;
-}
-
-#photo {
-  border: 1px solid black;
-  box-shadow: 2px 2px 3px black;
-  width:320px;
-  height:240px;
-}
-
-#canvas {
-  display:none;
-}
-
-.camera {
-  width: 340px;
-  display:inline-block;
-}
-
-.output {
-  width: 340px;
-  display:inline-block;
-}
-
-#startbutton {
-  display:block;
-  position:relative;
-  margin-left:auto;
-  margin-right:auto;
-  bottom:32px;
-  background-color: rgba(0, 150, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.2);
-  font-size: 14px;
-  font-family: "Lucida Grande", "Arial", sans-serif;
-  color: rgba(255, 255, 255, 1.0);
-}
-
-.contentarea {
-  font-size: 16px;
-  font-family: "Lucida Grande", "Arial", sans-serif;
-  width: 760px;
-}
-
 
 .navbar {
   overflow: hidden;
@@ -332,7 +283,38 @@ hr {
   color: #E2E2E2;
 }
 
+.myButton {
+	box-shadow: 0px 1px 50px 19px #002ea3;
+	background-color:#004ed4;
+	border-radius:8px;
+	border:1px solid #000000;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:18px;
+	padding:14px 67px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+	width: 390px;
+	margin-left: 1px;
+}
+.myButton:hover {
+	background-color:#0073ff;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
 
+   .centered {
+  position: absolute;
+  top: 60%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+  color:white;
+  font-size: 100px;
+}     
 		</style>
     </head>
     <body>
@@ -387,29 +369,31 @@ hr {
 		<h1>You are signed in as:</h1><h1 id="name">Divyang Verma</h1>
 		<br>
 		
-		<img src="pff.png" style="width: 150px; height: 150px;"></img>
-		<p>To chage your picture<br> take a picture and name<br> it <b>pff.png</b></p> 
+		<canvas id="canvas" width="520" height="400"></canvas>
+		<br><br>
+		<a id="snap" onclick="document.getElementById('pic1').style.display='block'" class="myButton"><pre>     Change Your Profile Picture</pre></a>
+        
 		
-		
-		<!-- <div class="contentarea"> -->
-	<!-- <h1> -->
-		<!-- MDN - WebRTC: Still photo capture demo -->
-	<!-- </h1> -->
-  <!-- <div class="camera"> -->
-    <!-- <video id="video">Video stream not available.</video> -->
-    <!-- <button id="startbutton">Take photo</button>  -->
-  <!-- </div> -->
-  <!-- <canvas id="canvas"> -->
-  <!-- </canvas> -->
-  <!-- <div class="output"> -->
-    <!-- <img id="photo" alt="The screen capture will appear in this box.">  -->
-  <!-- </div> -->
+<div id="pic1" class="modal">
+  <span onclick="document.getElementById('pic1').style.display='none'" class="close" title="Close Modal">X</span>
+  <form class="modal-content" >
+    <div class="container">
+      <h1>Take Your Picture!</h1>
+	  <strong>Note:</strong>If you blocked your camera, you can not take a picture
+      <div style="border: black 3px solid; height: 300px; width: 280px; background-color: lightblue;">
+	  	<video id="video" style="margin: 9px;" width="260" height="200" autoplay></video>
+	<p> Align your head in the middle of the video.</p>
+	<br><br>
+	<a id="snap" class="myButton" width="280">Take Picture</a>
+</div>
+    </div>
+  </form>
+</div>
   
-  
-		<br>
+		<br><br><br><br>
 		
 		<label for="u"><b>Change Your Name:</b></label>
-        <input type="text" id="name4" name="username" />
+        <input width="200px" height="50px" type="text" id="name4" name="username" />
 		<button onclick="name5()" style="width: 100px;">Save</button>
 <br><br><br>
 
@@ -462,106 +446,54 @@ if (c.indexOf(nameEQ) != -1) return c.substring(nameEQ.length,c.length);
 }
 return null;
 } 
-/////////////////////////
-<!-- (function() { -->
-  <!-- // The width and height of the captured photo. We will set the -->
-  <!-- // width to the value defined here, but the height will be -->
-  <!-- // calculated based on the aspect ratio of the input stream. -->
 
-  <!-- var width = 320;    // We will scale the photo width to this -->
-  <!-- var height = 0;     // This will be computed based on the input stream -->
 
-  <!-- // |streaming| indicates whether or not we're currently streaming -->
-  <!-- // video from the camera. Obviously, we start at false. -->
 
-  <!-- var streaming = false; -->
+// Grab elements, create settings, etc.<font></font>
+var video = document.getElementById('video');
 
-  <!-- // The various HTML elements we need to configure or control. These -->
-  <!-- // will be set by the startup() function. -->
+// Get access to the camera!<font></font>
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now<font></font>
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        //video.src = window.URL.createObjectURL(stream);<font></font>
+        video.srcObject = stream;
+        video.play();
+    });
+}
 
-  <!-- var video = null; -->
-  <!-- var canvas = null; -->
-  <!-- var photo = null; -->
-  <!-- var startbutton = null; -->
+/* Legacy code below: getUserMedia
+else if(navigator.getUserMedia) { // Standard<font></font>
+    navigator.getUserMedia({ video: true }, function(stream) {
+        video.src = stream;
+        video.play();
+    }, errBack);
+} else if(navigator.webkitGetUserMedia) { // WebKit-prefixed<font></font>
+    navigator.webkitGetUserMedia({ video: true }, function(stream){
+        video.src = window.webkitURL.createObjectURL(stream);
+        video.play();
+    }, errBack);
+} else if(navigator.mozGetUserMedia) { // Mozilla-prefixed<font></font>
+    navigator.mozGetUserMedia({ video: true }, function(stream){
+        video.srcObject = stream;
+        video.play();
+    }, errBack);
+}
+*/
 
-  <!-- function startup() { -->
-    <!-- video = document.getElementById('video'); -->
-    <!-- canvas = document.getElementById('canvas'); -->
-    <!-- photo = document.getElementById('photo'); -->
-    <!-- startbutton = document.getElementById('startbutton'); -->
+// Elements for taking the snapshot<font></font>
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+var video = document.getElementById('video');
+var imageC = document.getElementById('snap');
 
-    <!-- navigator.mediaDevices.getUserMedia({video: true, audio: false}) -->
-    <!-- .then(function(stream) { -->
-      <!-- video.srcObject = stream; -->
-      <!-- video.play(); -->
-    <!-- }) -->
-    <!-- .catch(function(err) { -->
-      <!-- console.log("An error occurred: " + err); -->
-    <!-- }); -->
+// Trigger photo take<font></font>
+imageC.addEventListener("click", function() {
+	context.drawImage(video, 0, 0, 640, 480);
+});
 
-    <!-- video.addEventListener('canplay', function(ev){ -->
-      <!-- if (!streaming) { -->
-        <!-- height = video.videoHeight / (video.videoWidth/width); -->
-      
-        <!-- // Firefox currently has a bug where the height can't be read from -->
-        <!-- // the video, so we will make assumptions if this happens. -->
-      
-        <!-- if (isNaN(height)) { -->
-          <!-- height = width / (4/3); -->
-        <!-- } -->
-      
-        <!-- video.setAttribute('width', width); -->
-        <!-- video.setAttribute('height', height); -->
-        <!-- canvas.setAttribute('width', width); -->
-        <!-- canvas.setAttribute('height', height); -->
-        <!-- streaming = true; -->
-      <!-- } -->
-    <!-- }, false); -->
 
-    <!-- startbutton.addEventListener('click', function(ev){ -->
-      <!-- takepicture(); -->
-      <!-- ev.preventDefault(); -->
-    <!-- }, false); -->
-    
-    <!-- clearphoto(); -->
-  <!-- } -->
-
-  <!-- // Fill the photo with an indication that none has been -->
-  <!-- // captured. -->
-
-  <!-- function clearphoto() { -->
-    <!-- var context = canvas.getContext('2d'); -->
-    <!-- context.fillStyle = "#AAA"; -->
-    <!-- context.fillRect(0, 0, canvas.width, canvas.height); -->
-
-    <!-- var data = canvas.toDataURL('image/png'); -->
-    <!-- photo.setAttribute('src', data); -->
-  <!-- } -->
-  
-  <!-- // Capture a photo by fetching the current contents of the video -->
-  <!-- // and drawing it into a canvas, then converting that to a PNG -->
-  <!-- // format data URL. By drawing it on an offscreen canvas and then -->
-  <!-- // drawing that to the screen, we can change its size and/or apply -->
-  <!-- // other changes before drawing it. -->
-
-  <!-- function takepicture() { -->
-    <!-- var context = canvas.getContext('2d'); -->
-    <!-- if (width && height) { -->
-      <!-- canvas.width = width; -->
-      <!-- canvas.height = height; -->
-      <!-- context.drawImage(video, 0, 0, width, height); -->
-    
-      <!-- var data = canvas.toDataURL('image/png'); -->
-      <!-- photo.setAttribute('src', data); -->
-    <!-- } else { -->
-      <!-- clearphoto(); -->
-    <!-- } -->
-  <!-- } -->
-
-  <!-- // Set up our event listener to run the startup process -->
-  <!-- // once loading is complete. -->
-  <!-- window.addEventListener('load', startup, false); -->
-<!-- })(); -->
+//////////////////
 
 </script>
 		

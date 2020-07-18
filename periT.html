@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>Home/THINK</title>
+		<link rel="icon" href="thinkLOGO.png">
+		<script type="text/javascript" src="welcomescript.js"></script>
+        <style>
+body {
+margin:10;
+border: 10px solid black;
+}
+
+.body{
+    margin: 30px;
+    width: 1450px;
+	height: 100
+	border-style: double;
+	border-bottom-color:;
+  }
+
+.navbar {
+  overflow: hidden;
+  background-color: #ff531a;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: blue;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 10;
+  width:45px;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: lightblue;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+.move{
+  position: relative;
+  top: 0;
+  transition: top ease 0.7s;
+}
+
+.move:hover {
+  top: -30px;
+  background-color: lightblue;
+}
+
+.active {
+  background-color: green;
+  margin: 0;
+ }
+ 
+
+
+.icon-bar {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+  width: 20px;
+  top:-100px;
+  float: right;
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+
+.facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.github {
+  background: #211F1F;
+  color: white;
+}
+
+.google {
+  background: #4285F4;
+  color: white;
+}
+
+.linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.youtube {
+  background: red;
+  color: white;
+}
+
+.gmail {
+  background: #D44638;
+  color: #E2E2E2;
+}
+
+.footer {
+   left: 0;
+   width:100%;
+   height:150px;
+   bottom: 0;
+   width: 100%;
+   background-color: #666666;
+   color: white;
+   text-align: center;
+}
+.h1 {
+  padding: 50px;
+  text-align: center;
+  background-color: #00008B;
+  color: white;
+}
+
+h1 {
+  font-size: 200%;
+}
+
+
+.box {
+  width: 40%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 35px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+.button {
+  font-size: 1em;
+  padding: 10px;
+  color: #fff;
+  border: 2px solid #06D85F;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.button:hover {
+  background: #06D85F;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+
+button{
+  width: 75px;
+  border: none;
+  outline: none;
+  heigth: 75px;
+  background-color: lightgreen;
+  font-size: 25px;
+  margin-top: 10px;
+  color: white;
+}
+
+button:hover{
+  color: lightgray;
+}
+
+		</style>
+    </head>
+    <body>
+	<div class="h1">
+        <h1>About Us</h1>
+		<p>Who Are We?</p>
+		<p>The first leaders of Think</p>
+		</div>
+		
+		<div class="navbar">
+	<a href="Home2.html">Home</a>
+	<a href="Atom2.html">Research</a>
+	<a href="Contact2.html">Contact</a>
+	<a href="About2.html">About Us</a>
+        <div class="move">
+			<a href="" style="opacity: 0.6;  cursor: not-allowed;">Join us</a>
+		</div>
+	<a href="password.html">Log out</a> 
+	<a href="SeC2.html">COVID-19</a>  
+			  
+  <div class="dropdown">
+    <button class="dropbtn">Other 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="Window.html">Games</a>
+      <a href="history.html">History</a>
+      <a href="photo.html">Photo Page</a>
+    </div>
+  </div> 
+  <a></a>
+  <a></a>
+  <a></a>
+  <a></a>
+  <a></a>
+  <a></a>
+  <a></a>
+  <a></a>
+  <a></a>
+  <a></a>
+  <a></a>
+  <a></a>
+  <a></a>
+  <a></a>
+  <a></a>
+  <a></a>
+  <a></a>
+  <a></a>
+  <a></a>
+  <a></a>
+  <a></a>
+  <a></a>
+	<a class="active" href="pro2.html"><img style="width: 40px; height: 40px; border-radius: 100%; " src="pff.png" alt="Avatar" class="avatar"></a> 
+</div>
+		
+			
+	<div class="body">
+<a href="#popup1"><button style="margin-right: 1264px;"><pre style="color:black; font-size: 8px;">1     1.00784</pre><b>H</b><p style ="font-size: 8px;">Hydrogen</p></button></a>
+
+<button style=" background-color:lightpink;"><pre style="color:black; font-size: 8px;">2     4.00</pre><b>He</b><p style ="font-size: 8px;">Helium</p></button>
+
+<button style=" background-color:red;"><pre style="color:black; font-size: 8px;">3     6.94</pre><b>Li</b><p style ="font-size: 8px;">Lithium</p></button>
+
+
+<button style=" background-color: orange; margin-right: 790px;"><pre style="color:black; font-size: 8px;">4     9.01</pre><b>Be</b><p style ="font-size: 8px;">Beryllium</p></button>
+
+
+<button style=" background-color:#ed6825;"><pre style="color:black; font-size: 8px;">5     10.81</pre><b>B</b><p style ="font-size: 8px;">Boron</p></button>
+
+<button><pre style="color:black; font-size: 8px;">6     12.01</pre><b>C</b><p style ="font-size: 8px;">Carbon</p></button>
+
+<button><pre style="color:black; font-size: 8px;">7     14.01</pre><b>N</b><p style ="font-size: 8px;">Nitrogen</p></button>
+
+<button><pre style="color:black; font-size: 8px;">8     15.99</pre><b>O</b><p style ="font-size: 8px;">Oxygen</p></button>
+
+<button><pre style="color:black; font-size: 8px;">9     18.99</pre><b>F</b><p style ="font-size: 8px;">Fluorine</p></button>
+
+<button  style=" background-color: lightpink;"><pre style="color:black; font-size: 8px;">10     20.18</pre><b>Ne</b><p style ="font-size: 8px;">Neon</p></button>
+
+<button  style=" background-color: red;"><pre style="color:black; font-size: 8px;">11     22.99</pre><b>Na</b><p style ="font-size: 8px;">Sodium</p></button>
+
+<button style=" background-color: orange; margin-right: 790px;"><pre style="color:black; font-size: 8px;">12     24.30</pre><b>Mg</b><p style ="font-size: 8px;">Magnesium</p></button>
+
+<button  style=" background-color:#3785c4;"><pre style="color:black; font-size: 8px;">13     26.98</pre><b>Al</b><p style ="font-size: 8px;">Aluminium</p></button>
+
+<button style=" background-color: #ed6825;"><pre style="color:black; font-size: 8px;">14     28.09</pre><b>Si</b><p style ="font-size: 8px;">Silicon</p></button>
+
+<button ><pre style="color:black; font-size: 8px;">15     30.97</pre><b>P</b><p style ="font-size: 8px;">Phosphorus</p></button>
+
+<button><pre style="color:black; font-size: 8px;">16     32.06</pre><b>S</b><p style ="font-size: 8px;">Sulfur</p></button>
+
+<button><pre style="color:black; font-size: 8px;">17    1.006</pre><b>Cl</b><p style ="font-size: 8px;">Chlorine</p></button>
+
+<button  style=" background-color: lightpink;"><pre style="color:black; font-size: 8px;">18    1.006</pre><b>Ar</b><p style ="font-size: 8px;">Argon</p></button>
+
+<button  style=" background-color: red;"><pre style="color:black; font-size: 8px;">19    1.006</pre><b>K</b><p style ="font-size: 8px;">Potassium</p></button>
+
+<button  style=" background-color: orange;"><pre style="color:black; font-size: 8px;">20    1.006</pre><b>Ca</b><p style ="font-size: 8px;">Calcium</p></button>
+
+<button  style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">21    1.006</pre><b>Sc</b><p style ="font-size: 8px;">Scandium</p></button>
+
+<button style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">22    1.006</pre><b>Ti</b><p style ="font-size: 8px;">Titanium</p></button>
+
+<button style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">23    1.006</pre><b>V</b><p style ="font-size: 8px;">Vanadium</p></button>
+
+<button style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">24    1.006</pre><b>Cr</b><p style ="font-size: 8px;">Chromium</p></button>
+
+<button style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">25     54.94</pre><b>Mn</b><p style ="font-size: 8px;">Manganese</p></button>
+
+<button style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">26     55.85</pre><b>Fe</b><p style ="font-size: 8px;">Iron</p></button>
+
+<button style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">27     58.93</pre><b>Co</b><p style ="font-size: 8px;">Cobalt</p></button>
+
+<button style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">28     58.69</pre><b>Ni</b><p style ="font-size: 8px;">Nickel</p></button>
+
+<button style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">29     63.55</pre><b>Cu</b><p style ="font-size: 8px;">Copper</p></button>
+
+<button  style=" background-color: #3785c4;"><pre style="color:black; font-size: 8px;">30     65.38</pre><b>Zn</b><p style ="font-size: 8px;">Zinc</p></button>
+
+<button  style=" background-color:#3785c4;"><pre style="color:black; font-size: 8px;">31     69.72</pre><b>Ga</b><p style ="font-size: 8px;">Gallium</p></button>
+
+<button  style=" background-color:#ed6825;"><pre style="color:black; font-size: 8px;">32     72.63</pre><b>Ge</b><p style ="font-size: 8px;">Germanium</p></button>
+
+<button  style=" background-color:#ed6825;"><pre style="color:black; font-size: 8px;">33     74.92</pre><b>As</b><p style ="font-size: 8px;">Arsenic</p></button>
+
+<button><pre style="color:black; font-size: 8px;">34     78.97</pre><b>Se</b><p style ="font-size: 8px;">Selenium</p></button>
+
+<button><pre style="color:black; font-size: 8px;">35     79.90</pre><b>Br</b><p style ="font-size: 8px;">Bromine</p></button>
+
+<button style=" background-color: lightpink;"><pre style="color:black; font-size: 8px;">36     83.79</pre><b>Kr</b><p style ="font-size: 8px;">Krypton</p></button>
+
+<button style=" background-color: red;"><pre style="color:black; font-size: 8px;">37     85.47</pre><b>Rb</b><p style ="font-size: 8px;">Rubidium</p></button>
+
+<button  style=" background-color: orange;"><pre style="color:black; font-size: 8px;">38     87.62</pre><b>Sr</b><p style ="font-size: 8px;">Strontium</p></button>
+
+<button  style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">39     88.91</pre><b>Y</b><p style ="font-size: 8px;">Yttrium</p></button>
+
+<button  style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">40     91.22</pre><b>Zr</b><p style ="font-size: 8px;">Zirconium</p></button>
+
+<button  style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">41     92.91</pre><b>Nb</b><p style ="font-size: 8px;">Niobium</p></button>
+
+<button  style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">42     95.95</pre><b>Mo</b><p style ="font-size: 8px;">Molybdenum</p></button>
+
+<button  style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">43     98.00</pre><b>Tc</b><p style ="font-size: 8px;">Technetium</p></button>
+
+<button  style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">44     101.07</pre><b>Ru</b><p style ="font-size: 8px;">Ruthenium</p></button>
+
+<button  style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">45     102.91</pre><b>Rh</b><p style ="font-size: 8px;">Rhodium</p></button>
+
+<button  style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">46     106.42</pre><b>Pd</b><p style ="font-size: 8px;">Palladium</p></button>
+
+<button  style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">47     107.87</pre><b>Ag</b><p style ="font-size: 8px;">Silver</p></button>
+
+<button  style=" background-color:#3785c4;"><pre style="color:black; font-size: 8px;">48     112.41</pre><b>Cd</b><p style ="font-size: 8px;">Cadmium</p></button>
+
+<button  style=" background-color:#3785c4;"><pre style="color:black; font-size: 8px;">49     114.82</pre><b>In</b><p style ="font-size: 8px;">Indium</p></button>
+
+<button  style=" background-color:#3785c4;"><pre style="color:black; font-size: 8px;">50     118.71</pre><b>Sn</b><p style ="font-size: 8px;">Tin</p></button>
+
+<button  style=" background-color:#ed6825;"><pre style="color:black; font-size: 8px;">51     121.76</pre><b>Sb</b><p style ="font-size: 8px;">Antimony</p></button>
+
+<button style=" background-color:#ed6825;"><pre style="color:black; font-size: 8px;">52     127.60</pre><b>Te</b><p style ="font-size: 8px;">Tellurium</p></button>
+
+<button><pre style="color:black; font-size: 8px;">53     126.90</pre><b>I</b><p style ="font-size: 8px;">Iodine</p></button>
+
+<button style=" background-color: lightpink;"><pre style="color:black; font-size: 8px;">54     131.29</pre><b>Xe</b><p style ="font-size: 8px;">Xenon</p></button>
+
+<button style=" background-color:red;"><pre style="color:black; font-size: 8px;">55     132.91</pre><b>Cs</b><p style ="font-size: 8px;">Caesium</p></button>
+
+<button style=" background-color: orange;"><pre style="color:black; font-size: 8px;">56     137.33</pre><b>Ba</b><p style ="font-size: 8px;">Barium</p></button>
+
+<button style=" background-color: green;"><pre style="color:black; font-size: 8px;">57-71</pre><b style="font-size: 12px;">Latheriums</b><p></p></button>
+
+<button style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">72     178.49</pre><b>Hf</b><p style ="font-size: 8px;">Hafnium</p></button>
+
+<button style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">73     180.95</pre><b>Ta</b><p style ="font-size: 8px;">Tantalum</p></button>
+
+<button style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">74     183.84</pre><b>W</b><p style ="font-size: 8px;">Tungsten</p></button>
+
+<button style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">75     186.21</pre><b>Re</b><p style ="font-size: 8px;">Rhenium</p></button>
+
+<button  style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">76     190.23</pre><b>Os</b><p style ="font-size: 8px;">Osmium</p></button>
+
+<button  style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">77     192.22</pre><b>Ir</b><p style ="font-size: 8px;">Iridium</p></button>
+
+<button  style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">78     195.08</pre><b>Pt</b><p style ="font-size: 8px;">Platinum</p></button>
+
+<button  style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">79     196.97</pre><b>Au</b><p style ="font-size: 8px;">Gold</p></button>
+
+<button style=" background-color:#3785c4;"><pre style="color:black; font-size: 8px;">80     200.59</pre><b>Hg</b><p style ="font-size: 8px;">Mercury</p></button>
+
+<button style=" background-color:#3785c4;"><pre style="color:black; font-size: 8px;">81     204.38</pre><b>Tl</b><p style ="font-size: 8px;">Thallium</p></button>
+
+<button style=" background-color:#3785c4;"><pre style="color:black; font-size: 8px;">82     207.2</pre><b>Pb</b><p style ="font-size: 8px;">Lead</p></button>
+
+<button style=" background-color:#3785c4;"><pre style="color:black; font-size: 8px;">83     208.98</pre><b>Bi</b><p style ="font-size: 8px;">Bismuth</p></button>
+
+<button style=" background-color:#3785c4;"><pre style="color:black; font-size: 8px;">84     209.00</pre><b>Po</b><p style ="font-size: 8px;">Polonium</p></button>
+
+<button  style=" background-color:#ed6825;"><pre style="color:black; font-size: 8px;">85     210.00</pre><b>At</b><p style ="font-size: 8px;">Astatine</p></button>
+
+<button style=" background-color:lightpink;"><pre style="color:black; font-size: 8px;">86     222</pre><b>Rn</b><p style ="font-size: 8px;">Radon</p></button>
+
+<button style=" background-color: red;"><pre style="color:black; font-size: 8px;">87     223</pre><b>Fr</b><p style ="font-size: 8px;">Francium</p></button>
+
+<button  style=" background-color: orange;"><pre style="color:black; font-size: 8px;">88     226</pre><b>Ra</b><p style ="font-size: 8px;">Radium</p></button>
+
+<button  style=" background-color:#b17fde;"><pre style="color:black; font-size: 8px;">89-103</pre><b style="font-size: 12px;">Actethiums</b><p></p></button>
+
+<button  style=" background-color:#0059a1;" ><pre style="color:black; font-size: 8px;">104     267</pre><b>Rf</b><p style ="font-size: 8px;">Rutherfordium</p></button>
+
+<button style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">105     268</pre><b>Db</b><p style ="font-size: 8px;">Dubnium</p></button>
+
+<button style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">106     269</pre><b>Sg</b><p style ="font-size: 8px;">Seaborgium</p></button>
+
+<button style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">107     270</pre><b>Bh</b><p style ="font-size: 8px;">Bohrium</p></button>
+
+<button style=" background-color:#0059a1;"><pre style="color:black; font-size: 8px;">108     269</pre><b>Hs</b><p style ="font-size: 8px;">Hassium</p></button>
+
+<button  style=" background-color: silver;"><pre style="color:black; font-size: 8px;">109     278</pre><b>Mt</b><p style ="font-size: 8px;">Meitnerium</p></button>
+
+<button  style=" background-color:silver;"><pre style="color:black; font-size: 8px;">110     281</pre><b>Ds</b><p style ="font-size: 8px;">Darmstadtium</p></button>
+
+<button  style=" background-color:silver;"><pre style="color:black; font-size: 8px;">111     281</pre><b>Rg</b><p style ="font-size: 8px;">Roentgenium</p></button>
+
+<button style=" background-color:#3785c4;"><pre style="color:black; font-size: 8px;">112     285</pre><b>Cn</b><p style ="font-size: 8px;">Copernium</p></button>
+
+<button style=" background-color:silver;"><pre style="color:black; font-size: 8px;">113     286</pre><b>Nh</b><p style ="font-size: 8px;">Nihonium</p></button>
+
+<button style=" background-color:silver;"><pre style="color:black; font-size: 8px;">114     289</pre><b>Fl</b><p style ="font-size: 8px;">Flerovium</p></button>
+
+<button style=" background-color:silver;"><pre style="color:black; font-size: 8px;">115     1.006</pre><b>Mc</b><p style ="font-size: 8px;">Moscovium</p></button>
+
+<button style=" background-color:silver;"><pre style="color:black; font-size: 8px;">116     293</pre><b>Lv</b><p style ="font-size: 8px;">Livermorium</p></button>
+
+<button style=" background-color:silver;"><pre style="color:black; font-size: 8px;">117     1.006</pre><b>Ts</b><p style ="font-size: 8px;">Tennessine</p></button>
+
+<button style=" background-color:silver;"><pre style="color:black; font-size: 8px;">118     1.006</pre><b>Og</b><p style ="font-size: 8px;">Oganesson</p></button>
+
+<br><br><br>
+
+<button style=" background-color: green; margin-left: 159px;"><pre style="color:black; font-size: 8px;">57     1.006</pre><b>La</b><p style ="font-size: 8px;">Lanthanum</p></button>
+
+<button style=" background-color: green;"><pre style="color:black; font-size: 8px;">58     1.006</pre><b>Ce</b><p style ="font-size: 8px;">Cerium</p></button>
+
+<button style=" background-color: green;"><pre style="color:black; font-size: 8px;">59     1.006</pre><b>Pr</b><p style ="font-size: 8px;">Praseodymium</p></button>
+
+<button style=" background-color: green;"><pre style="color:black; font-size: 8px;">60     1.006</pre><b>Nd</b><p style ="font-size: 8px;">Neodymium</p></button>
+
+<button style=" background-color: green;"><pre style="color:black; font-size: 8px;">61     1.006</pre><b>Pm</b><p style ="font-size: 8px;">Promethium</p></button>
+
+<button style=" background-color: green;"><pre style="color:black; font-size: 8px;">62     1.006</pre><b>Sm</b><p style ="font-size: 8px;">Samarium</p></button>
+
+<button style=" background-color: green;"><pre style="color:black; font-size: 8px;">63     1.006</pre><b>Eu</b><p style ="font-size: 8px;">Europium</p></button>
+
+<button style=" background-color: green;"><pre style="color:black; font-size: 8px;">64     1.006</pre><b>Gd</b><p style ="font-size: 8px;">Gadolinium</p></button>
+
+<button style=" background-color: green;"><pre style="color:black; font-size: 8px;">65     1.006</pre><b>Tb</b><p style ="font-size: 8px;">Terbium</p></button>
+
+<button style=" background-color: green;"><pre style="color:black; font-size: 8px;">66     1.006</pre><b>Dy</b><p style ="font-size: 8px;">Dysprosium</p></button>
+
+<button style=" background-color: green;"><pre style="color:black; font-size: 8px;">67     1.006</pre><b>Ho</b><p style ="font-size: 8px;">Holmium</p></button>
+
+<button style=" background-color: green;"><pre style="color:black; font-size: 8px;">68     1.006</pre><b>Er</b><p style ="font-size: 8px;">Erbium</p></button>
+
+<button style=" background-color: green;"><pre style="color:black; font-size: 8px;">69     1.006</pre><b>Tm</b><p style ="font-size: 8px;">Thulium</p></button>
+
+<button style=" background-color: green;"><pre style="color:black; font-size: 8px;">70     1.006</pre><b>Yb</b><p style ="font-size: 8px;">Ytterbium</p></button>
+
+<button style=" background-color: green;"><pre style="color:black; font-size: 8px;">71     1.006</pre><b>Lu</b><p style ="font-size: 8px;">Lutetium</p></button>
+
+<button style="background-color:#b17fde; margin-left: 159px;"><pre style="color:black; font-size: 8px;">89     1.006</pre><b>Ac</b><p style ="font-size: 8px;">Actinium</p></button>
+
+<button style=" background-color:#b17fde;"><pre style="color:black; font-size: 8px;">90     1.006</pre><b>Th</b><p style ="font-size: 8px;">Thorium</p></button>
+
+<button style=" background-color:#b17fde;"><pre style="color:black; font-size: 8px;">91     1.006</pre><b>Pa</b><p style ="font-size: 8px;">Protactinium</p></button>
+
+<button style=" background-color:#b17fde;"><pre style="color:black; font-size: 8px;">92     1.006</pre><b>U</b><p style ="font-size: 8px;">Uranium</p></button>
+
+<button style=" background-color:#b17fde;"><pre style="color:black; font-size: 8px;">93     1.006</pre><b>Np</b><p style ="font-size: 8px;">Neptunium</p></button>
+
+<button style=" background-color:#b17fde;"><pre style="color:black; font-size: 8px;">94     1.006</pre><b>Pu</b><p style ="font-size: 8px;">Plutonium</p></button>
+
+<button style=" background-color:#b17fde;"><pre style="color:black; font-size: 8px;">95     1.006</pre><b>Am</b><p style ="font-size: 8px;">Americium</p></button>
+
+<button style=" background-color:#b17fde;"><pre style="color:black; font-size: 8px;">96     1.006</pre><b>Cm</b><p style ="font-size: 8px;">Curium</p></button>
+
+<button style=" background-color:#b17fde;"><pre style="color:black; font-size: 8px;">97     1.006</pre><b>Bk</b><p style ="font-size: 8px;">Berkelium</p></button>
+
+<button style=" background-color:#b17fde;"><pre style="color:black; font-size: 8px;">98     1.006</pre><b>Cf</b><p style ="font-size: 8px;">Californium</p></button>
+
+<button style=" background-color:#b17fde;"><pre style="color:black; font-size: 8px;">99     1.006</pre><b>Es</b><p style ="font-size: 8px;">Einsteinium</p></button>
+
+<button style=" background-color:#b17fde;"><pre style="color:black; font-size: 8px;">100     1.006</pre><b>Fm</b><p style ="font-size: 8px;">Fermium</p></button>
+
+<button style=" background-color:#b17fde;"><pre style="color:black; font-size: 8px;">101     1.006</pre><b>Md</b><p style ="font-size: 8px;">Mendelevium</p></button>
+
+<button style=" background-color:#b17fde;"><pre style="color:black; font-size: 8px;">102     1.006</pre><b>No</b><p style ="font-size: 8px;">Nobelium</p></button>
+
+<button style=" background-color:#b17fde;"><pre style="color:black; font-size: 8px;">103     1.006</pre><b>Lr</b><p style ="font-size: 8px;">Lawrencium</p></button>
+<br><br>
+
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<h2>Hydrogen</h2>
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+			<Strong>Syboly:</strong> H
+		</div>
+	</div>
+</div>
+
+</div>	
+		
+		
+		<div class=footer>
+			<br/>Owner of THINK S.P.A.R.K. and this website: Divyang Verma
+			<br/><i>Contact: +1 123-456-7890.</i>
+			<br/>Maybe subject to copyright<br/>
+		</div>
+		
+    </body>
+</html>
