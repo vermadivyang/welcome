@@ -1,0 +1,151 @@
+Set Sapi = Wscript.CreateObject("SAPI.SpVoice")
+set wshshell = wscript.CreateObject("wscript.shell")
+
+dim Input
+
+wshshell.run "%windir%\Speech\Common\sapisvr.exe -SpeechUX"
+Sapi.speak " Welcome to Solar SPARK. Please speak, or type, what you want to open?"
+Input=inputbox ("Solar S.P.A.R.K")
+
+
+
+if Input = "think" OR Input = "Think" then
+Sapi.speak "Opening Think SPARK"
+wshshell.run "file:///C:/xampp_php/htdocs/welcome/Home2.html"
+
+else
+if Input = "Table of elements" OR Input = "Periodic Table of elements" OR Input = "Periodic Table" then
+Sapi.speak "The periodic table, also known as the periodic table of elements, is a tabular display of the chemical elements, which are arranged by atomic number, electron configuration, and recurring chemical properties."
+Sapi.speak "The seven rows of the table, called periods, generally have metals on the left and nonmetals on the right. The columns, called groups, contain elements with similar chemical behaviours."
+Sapi.speak "Six groups have accepted names as well as assigned numbers: for example, group 17 elements are the halogens; and group 18 are the noble gases."
+Sapi.speak "Also displayed are four simple rectangular areas or blocks associated with the filling of different atomic orbitals."
+Sapi.speak "The elements from atomic numbers 1 (hydrogen) through 118 (oganesson) have all been discovered or synthesized, completing seven full rows of the periodic table."
+Sapi.speak "The first 94 elements, hydrogen through plutonium, all occur naturally, though some are found only in trace amounts and a few were discovered in nature only after having first been synthesized."
+Sapi.speak "Elements 95 to 118 have only been synthesized in laboratories, nuclear reactors, or nuclear explosions."
+Sapi.speak "Russian chemist Dmitri Mendeleev published the first recognizable periodic table in 1869, developed mainly to illustrate periodic trends of the then-known elements."
+Sapi.speak "He also predicted some properties of unidentified elements that were expected to fill gaps within the table. Most of his forecasts proved to be correct."
+Sapi.speak "Mendeleev's idea has been slowly expanded and refined with the discovery or synthesis of further new elements and the development of new theoretical models to explain chemical behaviour."
+Sapi.speak "The modern periodic table now provides a useful framework for analyzing chemical reactions, and continues to be widely used in chemistry, nuclear physics and other sciences."
+
+
+else
+if Input = "google" OR Input = "Google" then
+Sapi.speak "Opening google"
+wshshell.run "www.google.com"
+
+else
+if Input = "Alarm" OR Input = "open science quiz" OR Input = "science quiz" OR Input = "Science quiz" then
+
+On Error Resume next
+Sapi.speak "This is the Alarm tool"
+MsgBox "Welcome to the ALARM tool",0+0,"ALARM tool"
+Sapi.speak "Please note that the alarm tool will not run if this computer restarts or shutdown."
+Sapi.speak "Also, do not enter decimals or words."
+
+strComputer = "."
+Set objWMIService = GetObject("Winmgmts:\\" & strComputer & "\root\cimv2")
+Set colItems = objWMIService.ExecQuery("Select * From Win32_DesktopMonitor")
+For Each objItem in colItems
+    intHorizontal = objItem.ScreenWidth
+    intVertical = objItem.ScreenHeight
+Next
+
+Set objExplorer = CreateObject _
+    ("InternetExplorer.Application")
+
+objExplorer.Navigate "about:blank"
+objExplorer.ToolBar = 0
+
+objExplorer.StatusBar = 1
+objExplorer.Left = (intHorizontal - 1) / 2
+objExplorer.Top = (intVertical - 1) / 2
+objExplorer.Width = 381
+objExplorer.Height = 371
+objExplorer.Visible = 1
+objExplorer.Document.Body.InnerHTML = "<b><font style='color: #FF0000;'>NOTE:</font></b> In the <b>TIME</b> section, choose <b>MINUTE</b> to <b>mintue</b>. <br><b><font style='color: #FF0000;'>NOTE:</font></b> You need Internet Connection for converting & <b><u>DO NOT</u></b> close this window.<br><br><iframe width='250' height='225' src='http://www-open-opensocial.googleusercontent.com/gadgets/ifr?url=http%3A%2F%2Fhosting.gmodules.com%2Fig%2Fgadgets%2Ffile%2F110220971631329159313%2Funitconverter.xml&container=open&view=home&lang=all&country=ALL&debug=0&nocache=0&sanitize=0&v=79794ca11372d4fe&source=http%3A%2F%2Fwww.calculator.net%2Fprojects%2Funit-converter-gadget.php&parent=http%3A%2F%2Fwww.calculator.net%2Fprojects%2Funit-converter-gadget.php&libs=core%3Acore.io#st=%25st%25' frameBorder='0' scrolling='no' style='display: block;'/>"
+objExplorer.Document.Title = "ALARM tool"
+
+Sapi.speak "Convert it in the window and enter the time in mintues"
+t=InputBox ("Convert it in the window and enter the time in mintues:","ALARM tool")
+If t="" Then
+objExplorer.quit
+MsgBox "The value is empty, so no alarm is set.",16,"ALARM tool"
+WScript.Quit
+End If
+
+objExplorer.Document.Body.InnerHTML = "<b><font style='color: #FF0000;'>NOTE:</font></b> In the <b>TIME</b> section, choose <b>MINUTE</b> to <b>mintue</b>. <br><b><font style='color: #FF0000;'>NOTE:</font></b> You need Internet Connection for converting & now you <b><u>CAN</u></b> close this window.<br><br><iframe width='250' height='225' src='http://www-open-opensocial.googleusercontent.com/gadgets/ifr?url=http%3A%2F%2Fhosting.gmodules.com%2Fig%2Fgadgets%2Ffile%2F110220971631329159313%2Funitconverter.xml&container=open&view=home&lang=all&country=ALL&debug=0&nocache=0&sanitize=0&v=79794ca11372d4fe&source=http%3A%2F%2Fwww.calculator.net%2Fprojects%2Funit-converter-gadget.php&parent=http%3A%2F%2Fwww.calculator.net%2Fprojects%2Funit-converter-gadget.php&libs=core%3Acore.io#st=%25st%25' frameBorder='0' scrolling='no' style='display: block;'/>"
+objExplorer.quit
+
+c=InputBox ("Enter your comment; leave it blank if you don't want one:","ALARM tool")
+
+If c="" Then
+ If t="1" Then
+  MsgBox "Time: "+t+" mintue        Comment: None",0,"ALARM tool: Preview"
+ Else
+  MsgBox "Time: "+t+" mintue       Comment: None",0,"ALARM tool: Preview"
+ End If
+Else
+ If t="1" Then
+  MsgBox "Time: "+t+" mintue        Comment: "+c,0,"ALARM tool: Preview"
+ Else
+  MsgBox "Time: "+t+" mintue       Comment: "+c,0,"ALARM tool: Preview"
+ End If
+End If
+
+co=MsgBox ("Are you sure?",36,"ALARM tool")
+If co="7" Then
+Sapi.speak "Alarm cancelled"
+WScript.Quit
+End If
+
+On Error Resume Next
+
+WScript.Sleep (t * 60000)
+
+If Err.Number <> 0 Then
+Sapi.speak "Error!"
+MsgBox "There's an error while setting the alarm. Maybe you typed words or it's an internal error. Please try again. Sorry for the inconvenience.",0,"ALARM tool"
+WScript.Quit
+End If
+
+If t="1" Then
+  If c="" Then
+   Sapi.speak "Ring ring"
+   MsgBox "ALARM for 1 mintue has elapsed!!!",0+0,"ALARM set for 1 mintue"
+  Else
+   MsgBox ""+c+"",0+0,"ALARM set for 1 mintue"
+  End If
+Else
+  If c="" Then
+   MsgBox "ALARM for "+t+" mintue has elapsed!!!",0+0,"ALARM set for "+t+" mintue"
+  Else
+   Sapi.speak c
+   MsgBox ""+c+"",0+0,"ALARM set for "+t+" mintue"
+  End If
+End If
+WScript.Quit
+
+
+else
+if Input = "calculator" OR Input = "Calculator" then
+Sapi.speak "Opening calculator"
+wshshell.run "calc"
+
+else
+if Input = "notepad" OR Input = "Notepad" then
+Sapi.speak "Opening notepad"
+wshshell.run "notepad"
+
+else
+if Input = "Hello SS" OR Input = "hello SS" OR Input = "hi SS" OR Input = "Hi SS" then
+Sapi.speak "Hello Divyang verma."
+
+
+Sapi.speak "That is not in my data base, please try again"
+end if
+end if
+end if
+end if
+end if
+end if
+end if
