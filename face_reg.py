@@ -1,4 +1,3 @@
-
 import face_recognition
 import cv2
 import sys
@@ -95,7 +94,7 @@ hideLabel.config(font=("",12))
 hideLabel.config(fg='white')  
 hideLabel.place(x=2,y=260)
 
-flb = firstName.get() +"_"+ lastName.get() +"_"+ month.get() +"_"+ day.get()
+flb = firstName.get() +"_"+ lastName.get() +"_"+ month.get()+day.get()
 print("Identifier:"+flb)
 
 camera_port = 0
