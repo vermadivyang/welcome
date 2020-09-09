@@ -7,27 +7,37 @@ body{
   background-color: blue;
 }
 
-@keyframes around {
+
+@keyframes hulkb {
   0%  { margin-left: 0; margin-top: 600px; background-color: tan; font-size: 16px;}
-  40% { margin-left: 38%; margin-top: 400px;  background-color: green; width:300px; height:300px; border-radius: 20px; font-size: 25px;}
+  20% { margin-left: 28%; margin-top: 400px;  background-color: green; width:300px; height:300px; border-radius: 20px; font-size: 25px;}
+  30% { margin-left: 33%; margin-top: 300px;  background-color: darkgreen; width:300px; height:300px; border-radius: 30px; font-size:30px;}
+  40% { margin-left: 33%; margin-top: 400px;  background-color: green; width:300px; height:300px; border-radius: 20px; font-size: 25px;}
   50% { margin-left: 38%; margin-top: 300px;  background-color: darkgreen; width:300px; height:300px; border-radius: 30px; font-size:30px;}
-  60% { margin-left: 38%; margin-top: 400px;  background-color: green; width:300px; height:300px; border-radius: 20px; font-size: 25px;}
-  100%{ margin-left: 1200px; margin-top: 600px;  background-color: tan; font-size: 16px;}
+  60% { margin-left: 38%; margin-top: 400px;  background-color: green; width:300px; height:300px; border-radius: 20px; font-size: 25px;transform: rotate(0deg);}
+  65% { margin-left: 38%; margin-top: 400px;  background-color: green; width:300px; height:300px; border-radius: 20px; font-size: 25px; transform: rotate(0deg);}
+  80%{ margin-left: 65%; margin-top: 600px;  background-color: tan; font-size: 16px;transform: rotate(400deg); width: 1px; height: 1px; font-size: 0px;}
+  100%{ transform: scale(100); margin-left: 65%; margin-top: 600px;  background-color: tan; font-size: 0px; width: 1px; height: 1px;}
 }
 
-@keyframes ground {
-  0%  { margin-left: 0; margin-top: 600px; background-color: tan; font-size: 16px;}
-  40% { margin-left: 38%; margin-top: 400px;  background-color: green; width:300px; height:300px; border-radius: 20px; font-size: 25px;}
-  50% { margin-left: 38%; margin-top: 300px;  background-color: darkgreen; width:300px; height:300px; border-radius: 30px; font-size:30px;}
-  60% { margin-left: 38%; margin-top: 400px;  background-color: green; width:300px; height:300px; border-radius: 20px; font-size: 25px;}
-  100%{ margin-left: 1200px; margin-top: 600px;  background-color: tan; font-size: 16px;}
+@keyframes ball {
+  0%  { margin-left: 0; margin-top: -810px;}
+  50% { margin-left: 0; margin-top: -190px;}
+  70% { margin-left: 0; margin-top: -190px;}
+  100% { margin-left: -200px; margin-top: -210px;}
 }
-.wheel{ 
-  animation-name: around;
+
+@keyframes pow {
+  0%  { margin-right: 0; margin-top: -810px;}
+  40% { margin-left: 50%; margin-top: 600px;}
+  100% { margin-left: 50%; margin-top: 600px; transform: scale(0);}
+}
+
+.hulk{ 
+  animation-name: hulkb;
   animation-duration: 10s;
   animation-timing-function: ease;
-  animation-delay: 30s;
-  animation-iteration-count: infinite;
+  animation-delay: 4s; <!-- 4s -->
   margin-left: 0;
   margin-top: 600px;
   background-color: tan;
@@ -37,11 +47,31 @@ body{
 
 }
 
-.ground{
+.ball{
+  animation-name: ball;
+  animation-duration: 3s; <!-- 3s -->
+  animation-timing-function: ease;
+  animation-delay: 0.5s;
   background-color: orange;
   width: 97px;
   height: 97px;
   border-radius: 50px;
+  margin-left: 0;
+  margin-top: -810px;
+}
+
+
+.pow{
+  animation-name: pow;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 9.9s;
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  margin-right: 0;
+  margin-top: -810px;
 }
 
 </style>
@@ -50,9 +80,10 @@ body{
 
 
 
-<div class="wheel"><center>Hulk</center></div>
-
-<div class="ground"><center></center></div>
+<div class="hulk"><center>Hulk</center></div>
+  <!-- animation-iteration-count: infinite; + transform: skew(120deg); -->
+<div class="ball"></div>
+<div class="pow"></div>
 
 </body>
 </html> 

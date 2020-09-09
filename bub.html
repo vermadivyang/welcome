@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+  background-color: #ff14e4;
+}
+
+
+@keyframes bub {
+  0%  { margin-left: 50%; margin-top: -810px;}
+  50% { transform: scale(2); margin-left: 50%; margin-top: 200px;}
+  70% { transform: scale(2); margin-left: 50%; margin-top: 200px; transform: rotate(130deg)}
+  100%{ transform: scale(1); margin-left: 50%; margin-top: 550px; transform: rotate(300deg)}
+}
+
+@keyframes bub2 {
+  0%  { margin-left: 70%; margin-top: -810px;}
+  50% { transform: scale(2); margin-left: 70%; margin-top: -45px;}
+  68% { transform: scale(2); margin-left: 70%; margin-top: -45px; transform: rotate(150deg)}
+  100%{ transform: scale(1); margin-left: 70%; margin-top: -80px; transform: rotate(340deg)}
+}
+
+@keyframes bub3 {
+  0%  { margin-left: 30%; margin-top: -810px;}
+  50% { transform: scale(2); margin-left: 30%; margin-top: -40px;}
+  100%{ transform: scale(1); margin-left: 30%; margin-top: -80px; transform: rotate(352deg)}
+}
+
+.hulk{ 
+  animation-name: bub;
+  animation-duration: 18s; <!-- 3s -->
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  background-image: linear-gradient(red, orange, yellow, green, blue, purple); width: 150px;  width: 97px;
+  height: 97px;
+  border-radius: 50px;
+  margin-left: 0;
+  margin-top: -810px;
+}
+
+.ball{
+  animation-name: bub2;
+  animation-duration: 13s; <!-- 3s -->
+  animation-timing-function: ease;
+  animation-delay: 4s;
+  background-image: linear-gradient(red, orange, yellow, green, blue, purple); width: 150px;  width: 97px;
+  height: 97px;
+  border-radius: 50px;
+  margin-left: 0;
+  margin-top: -810px;
+}
+
+
+.pow{
+  animation-name: bub3;
+  animation-duration: 15s; <!-- 3s -->
+  animation-timing-function: ease;
+  animation-delay: 8s;
+  background-image: linear-gradient(red, orange, yellow, green, blue, purple); width: 150px;  width: 97px;
+  height: 97px;
+  border-radius: 50px;
+  margin-left: 0;
+  margin-top: -810px;
+}
+
+</style>
+</head>
+<body>
+
+
+
+<div class="hulk"></div>
+  <!-- animation-iteration-count: infinite; + transform: skew(120deg); -->
+<div class="ball"></div>
+<div class="pow"></div>
+
+</body>
+</html> 
