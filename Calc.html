@@ -1,0 +1,191 @@
+<!DOCKTYPE html>
+<html>
+<style>
+body{
+  background-color: orange;
+}
+
+button {
+  width: 100px;
+  height: 100px;
+  left: 10px;
+  margin-top: 10px;
+  font-size: 30px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  font-family:"Courier New", Courier, monospace;
+  background-color: lightblue;
+  box-shadow: 3px 3px;
+}
+</style>
+<body>
+<div style="background-color: gray; border: black 10px soild; width: 450px; box-shadow: 5px 5px;">
+        <input type="text" id="type" name="type" style="width: 450px; height: 110px; font-size: 40px; box-shadow: 0px 3px;"></input>
+        <input type="text" id="type2" name="type2" style="width: 450px; height: 110px; font-size: 40px; box-shadow: 0px 3px;"></input>
+<br>
+        <button id="btn+" onclick="add1()">+</button>
+        <button id="btn-" onclick="sub1()">-</button>
+		<button id="btn*" onclick="multi()" style="">*</button>
+        <button id="btn/" onclick="unk3()" style="">/</button>
+<br>
+        <button id="btn^" onclick="squ1()">^2</button>
+		<button id="btn^^" onclick="unk4()">^3</button>
+		<button id="btn^R" onclick="squ1R()">rt</button>
+		<button id="btn^R" onclick="squ3R()">3rt</button>
+        
+<br>
+		<button id="btnVV" onclick="unk2()">0.x</button>
+        <button id="btn\" onclick="fac()">fact</button>
+		<button id="btn|" onclick="un2()">|n|</button>
+		<button id="btn." onclick="un22()">pi</button>
+<br>
+		<button id="btn~" onclick="un2k()">~</button>
+		<button id="btnC" onclick="unk1()">AC</button>
+		<button id="btnC" onclick="ran1()">Ran</button>
+
+</div>
+
+<p style="font-size: 230px; margin-top: -400px; margin-left: 600px;" id="Show_Calc"></p>
+<p style="font-size: 100px; " id="Err"></p>
+
+<div style="width: 380px; height: 40%;">
+<p id="Imf" style="margin-top: -80px;">Welcome to the imfomation manule. BUTTONS: + for adding, - for subtracting, * for multiplying, / for divieding, ^2 of squaring, ^3 for cubeing, and C for reseting. NOTE: the text box is for * and / only.</p>
+</div>
+
+<script>
+try{
+
+//3.381391913522732e + 51
+
+var calcN = 0;
+var type = document.getElementById("type").value;
+
+
+function add1(){
+calcN ++;
+document.getElementById("Show_Calc").innerHTML = calcN;
+
+}
+
+function sub1(){
+calcN = calcN - 1;
+document.getElementById("Show_Calc").innerHTML = calcN;
+
+}
+
+function squ1(){
+calcN = calcN * calcN;
+document.getElementById("Show_Calc").innerHTML = calcN;
+
+}
+
+function squ1R(){
+calcN = Math.sqrt(calcN);
+document.getElementById("Show_Calc").innerHTML = calcN;
+
+}
+
+function squ3R(){
+calcN = Math.cbrt(calcN);
+document.getElementById("Show_Calc").innerHTML = calcN;
+
+}
+
+function unk1(){
+type = document.getElementById("type").value;
+calcN = 0;
+type = 0;
+document.getElementById("Show_Calc").innerHTML = calcN;
+
+}
+
+function ran1(){
+calcN = Math.floor(Math.random() * 101);
+document.getElementById("Show_Calc").innerHTML = calcN;
+
+}
+
+function multi (){
+type = document.getElementById("type").value;
+var x = type;
+calcN = (calcN * x);
+//calcN = "Error";
+document.getElementById("Show_Calc").innerHTML = calcN;
+document.getElementById("type").value = calcN;
+
+}
+
+function unk3(){
+type = document.getElementById("type").value;
+var x = type;
+calcN = (calcN / x);
+//calcN = "Error";
+document.getElementById("Show_Calc").innerHTML = calcN;
+
+}
+
+function un2k(){
+calcN = Math.round(calcN);
+document.getElementById("Show_Calc").innerHTML = calcN;
+
+}
+
+function unk4(){
+calcN = calcN * calcN * calcN;
+document.getElementById("Show_Calc").innerHTML = calcN;
+
+}
+
+function squ2(){
+calcN = calcN / calcN;
+document.getElementById("Show_Calc").innerHTML = calcN;
+
+}
+
+function unk2(){
+calcN = calcN / calcN / calcN;
+document.getElementById("Show_Calc").innerHTML = calcN;
+
+}
+
+function un22(){
+calcN = 3.141592653589793;
+document.getElementById("Show_Calc").innerHTML = calcN;
+
+}
+
+function un2(){
+if (calcN < 0){
+calcN = calcN + calcN * -2;
+document.getElementById("Show_Calc").innerHTML = calcN;
+}else{
+var calcNS = " (|" + calcN + "| = " + calcN + ")";
+document.getElementById("Show_Calc").innerHTML = calcN && calcNS;
+}
+document.getElementById("Show_Calc").innerHTML = calcN && calcNS || calcN;
+
+
+}
+
+function fac(){
+var IntegerF = Number.isSafeInteger(123);
+if (IntegerF = true)
+var calcN2 = calcN + "/" + "1";
+document.getElementById("Show_Calc").innerHTML = calcN2;
+
+}
+
+if(calcN === Infinity){
+calcN = "aleph 0";
+}
+
+document.getElementById("Show_Calc").innerHTML = calcN;
+}
+catch(err){
+document.getElementById("Err").innerHTML = err.name + "<br>" + err.message;
+alert(err.name + " " + err.message);
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+  background-color: blue;
+}
+
+
+
+@keyframes ball1 {
+  0%  { margin-left: 260; margin-top: 0px;}
+  50% { margin-left: 260px; margin-top: 50px;}
+  100% { margin-left: 260px; margin-top: 0px;}
+  
+}
+
+@keyframes ball2 {
+  0%  { margin-left: 500px; margin-top: 400px;}
+   100% { margin-left: 500px; margin-top: 400px;}
+}
+
+
+.ball1{
+  animation-name: ball1;
+  animation-duration: 4s; <!-- 10s -->
+  animation-timing-function: ease;
+  animation-delay: 0.5s;
+  background-color: gray;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  margin-left: 260px;
+  margin-top: 0px;
+  animation-iteration-count: infinite;
+}
+
+
+.ball2{
+  animation-name: ball2;
+  animation-duration: 60480s;
+  animation-timing-function: ease;
+  animation-delay: 1s;
+  background-color: orange;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  animation-iteration-count: infinite;
+  margin-left: 500px; 
+  margin-top: 400px;
+}
+
+</style>
+</head>
+<body>
+
+  <!-- animation-iteration-count: infinite; + transform: skew(120deg); -->
+
+<div class="ball2"></div>
+<div class="ball1"></div>
+
+</body>
+</html> 
